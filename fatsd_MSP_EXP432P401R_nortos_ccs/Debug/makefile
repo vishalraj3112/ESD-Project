@@ -12,6 +12,7 @@ GEN_CMDS__FLAG :=
 ORDERED_OBJS += \
 "./syscfg/ti_drivers_config.obj" \
 "./fatsd_nortos.obj" \
+"./lcd.obj" \
 "./main_nortos.obj" \
 "./mpu.obj" \
 "../MSP_EXP432P401R_NoRTOS.cmd" \
@@ -164,8 +165,8 @@ fatsd_MSP_EXP432P401R_nortos_ccs.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(GEN_MISC_FILES__QUOTED)$(BIN_OUTPUTS__QUOTED)$(GEN_FILES__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "syscfg\ti_drivers_config.obj" "fatsd_nortos.obj" "main_nortos.obj" "mpu.obj" 
-	-$(RM) "syscfg\ti_drivers_config.d" "fatsd_nortos.d" "main_nortos.d" "mpu.d" 
+	-$(RM) "syscfg\ti_drivers_config.obj" "fatsd_nortos.obj" "lcd.obj" "main_nortos.obj" "mpu.obj" 
+	-$(RM) "syscfg\ti_drivers_config.d" "fatsd_nortos.d" "lcd.d" "main_nortos.d" "mpu.d" 
 	-$(RMDIR) $(GEN_MISC_DIRS__QUOTED)
 	-@echo 'Finished clean'
 	-@echo ' '

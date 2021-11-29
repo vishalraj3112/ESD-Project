@@ -44,6 +44,7 @@ fatsd_nortos.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/third_party/CM
 fatsd_nortos.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/third_party/CMSIS/Include/cmsis_ccs.h
 fatsd_nortos.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/third_party/CMSIS/Include/mpu_armv7.h
 fatsd_nortos.obj: ../system_msp432p401r.h
+fatsd_nortos.obj: ../lcd.h
 
 ../fatsd_nortos.c:
 
@@ -132,4 +133,6 @@ C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/third_party/CMSIS/Include/cmsis_
 C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/third_party/CMSIS/Include/mpu_armv7.h:
 
 ../system_msp432p401r.h:
+
+../lcd.h:
 

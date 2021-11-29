@@ -52,6 +52,11 @@ extern "C" {
  *  SDA: P6.4
  */
 #define CONFIG_I2C_0                0
+/*
+ *  SCL: P2.3
+ *  SDA: P2.4
+ */
+#define CONFIG_I2C_1                1
 
 /* ======== I2C Addresses and Speeds ======== */
 #include <ti/drivers/I2C.h>
@@ -63,6 +68,14 @@ extern "C" {
 /* max speed unspecified, defaulting to 100 Kbps */
 #define CONFIG_I2C_0_MAXSPEED   (100U) /* Kbps */
 #define CONFIG_I2C_0_MAXBITRATE ((I2C_BitRate)I2C_100kHz)
+
+/* ---- CONFIG_I2C_1 I2C bus components ---- */
+
+/* no components connected to CONFIG_I2C_1 */
+
+/* max speed unspecified, defaulting to 100 Kbps */
+#define CONFIG_I2C_1_MAXSPEED   (100U) /* Kbps */
+#define CONFIG_I2C_1_MAXBITRATE ((I2C_BitRate)I2C_100kHz)
 
 
 /*

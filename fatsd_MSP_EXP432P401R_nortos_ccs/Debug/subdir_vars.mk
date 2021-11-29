@@ -14,6 +14,7 @@ SYSCFG_SRCS += \
 C_SRCS += \
 ./syscfg/ti_drivers_config.c \
 ../fatsd_nortos.c \
+../lcd.c \
 ../main_nortos.c \
 ../mpu.c 
 
@@ -26,12 +27,14 @@ GEN_MISC_DIRS += \
 C_DEPS += \
 ./syscfg/ti_drivers_config.d \
 ./fatsd_nortos.d \
+./lcd.d \
 ./main_nortos.d \
 ./mpu.d 
 
 OBJS += \
 ./syscfg/ti_drivers_config.obj \
 ./fatsd_nortos.obj \
+./lcd.obj \
 ./main_nortos.obj \
 ./mpu.obj 
 
@@ -45,6 +48,7 @@ GEN_MISC_DIRS__QUOTED += \
 OBJS__QUOTED += \
 "syscfg\ti_drivers_config.obj" \
 "fatsd_nortos.obj" \
+"lcd.obj" \
 "main_nortos.obj" \
 "mpu.obj" 
 
@@ -55,6 +59,7 @@ GEN_MISC_FILES__QUOTED += \
 C_DEPS__QUOTED += \
 "syscfg\ti_drivers_config.d" \
 "fatsd_nortos.d" \
+"lcd.d" \
 "main_nortos.d" \
 "mpu.d" 
 
@@ -67,6 +72,7 @@ SYSCFG_SRCS__QUOTED += \
 C_SRCS__QUOTED += \
 "./syscfg/ti_drivers_config.c" \
 "../fatsd_nortos.c" \
+"../lcd.c" \
 "../main_nortos.c" \
 "../mpu.c" 
 

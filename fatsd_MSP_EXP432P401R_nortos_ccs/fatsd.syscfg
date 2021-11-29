@@ -15,6 +15,7 @@ const GPIO     = scripting.addModule("/ti/drivers/GPIO");
 const GPIO1    = GPIO.addInstance();
 const I2C      = scripting.addModule("/ti/drivers/I2C", {}, false);
 const I2C1     = I2C.addInstance();
+const I2C2     = I2C.addInstance();
 const RTOS     = scripting.addModule("/ti/drivers/RTOS");
 const SD       = scripting.addModule("/ti/drivers/SD");
 const SD1      = SD.addInstance();
@@ -29,7 +30,13 @@ Display1.uart.$name = "CONFIG_UART_0";
 GPIO1.$hardware = system.deviceData.board.components.LED1_RED;
 GPIO1.$name     = "CONFIG_GPIO_LED_0";
 
-I2C1.$name = "CONFIG_I2C_0";
+I2C1.$name              = "CONFIG_I2C_0";
+I2C1.i2c.sdaPin.$assign = "boosterpack.10";
+I2C1.i2c.sclPin.$assign = "boosterpack.9";
+
+I2C2.$name              = "CONFIG_I2C_1";
+I2C2.i2c.sdaPin.$assign = "boosterpack.38";
+I2C2.i2c.sclPin.$assign = "boosterpack.34";
 
 const Power                   = scripting.addModule("/ti/drivers/Power", {}, false);
 Power.performanceLevel3.$name = "ti_drivers_power_PowerMSP432PerfLevels0";
@@ -59,8 +66,7 @@ Display1.uart.uart.txPin.$suggestSolution    = "ball.7";
 Display1.uart.uart.rxPin.$suggestSolution    = "ball.6";
 GPIO1.gpioPin.$suggestSolution               = "ball.4";
 I2C1.i2c.$suggestSolution                    = "EUSCI_B1";
-I2C1.i2c.sdaPin.$suggestSolution             = "boosterpack.10";
-I2C1.i2c.sclPin.$suggestSolution             = "boosterpack.9";
+I2C2.i2c.$suggestSolution                    = "EUSCI_B2";
 RTOS.timer0.resource.$suggestSolution        = "Timer_A0";
 SD1.slaveSelect.gpioPin.$suggestSolution     = "boosterpack.8";
 SPI1.spi.$suggestSolution                    = "EUSCI_B0";

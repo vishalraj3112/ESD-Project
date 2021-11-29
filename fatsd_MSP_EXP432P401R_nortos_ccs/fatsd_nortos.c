@@ -53,6 +53,7 @@
 
 #include "mpu.h"
 #include "msp432p401r.h"
+#include "lcd.h"
 
 /* Buffer size used for the file copy process */
 #ifndef CPY_BUFF_SIZE
@@ -98,158 +99,159 @@ unsigned char cpy_buff[CPY_BUFF_SIZE + 1];
  */
 void *mainThread(void *arg0)
 {
-    SDFatFS_Handle sdfatfsHandle;
+//    SDFatFS_Handle sdfatfsHandle;
+//
+//    /* Variables for the CIO functions */
+//    FILE *src, *dst;
+//
+//    /* Variables to keep track of the file copy progress */
+//    unsigned int bytesRead = 0;
+//    unsigned int bytesWritten = 0;
+//    unsigned int filesize;
+//    unsigned int totalBytesCopied = 0;
+//
+//    /* Call driver init functions */
+//    GPIO_init();
+//    Display_init();
+//    SDFatFS_init();
+//
+//    /* Configure the LED pin */
+//    GPIO_setConfig(CONFIG_GPIO_LED_0, GPIO_CFG_OUT_STD | GPIO_CFG_OUT_LOW);
+//
+//    /* add_device() should be called once and is used for all media types */
+//    add_device(fatfsPrefix, _MSA, ffcio_open, ffcio_close, ffcio_read,
+//        ffcio_write, ffcio_lseek, ffcio_unlink, ffcio_rename);
+//
+//    /* Open the display for output */
+//    display = Display_open(Display_Type_UART, NULL);
+//    if (display == NULL) {
+//        /* Failed to open display driver */
+//        while (1);
+//    }
+//
+//    /* Turn on user LED */
+//    GPIO_write(CONFIG_GPIO_LED_0, CONFIG_GPIO_LED_ON);
+//
+//    Display_printf(display, 0, 0, "Starting the fatsd example\n");
+//    Display_printf(display, 0, 0,
+//        "This example requires a FAT filesystem on the SD card.\n");
+//    Display_printf(display, 0, 0,
+//        "You will get errors if your SD card is not formatted with a filesystem.\n");
+//
+//    /* Mount and register the SD Card */
+//    sdfatfsHandle = SDFatFS_open(CONFIG_SDFatFS_0, DRIVE_NUM);
+//    if (sdfatfsHandle == NULL) {
+//        Display_printf(display, 0, 0, "Error starting the SD card\n");
+//        while (1);
+//    }
+//    else {
+//        Display_printf(display, 0, 0, "Drive %u is mounted\n", DRIVE_NUM);
+//    }
+//
+//    /* Try to open the source file */
+//    src = fopen(inputfile, "r");
+//    if (!src) {
+//        Display_printf(display, 0, 0, "Creating a new file \"%s\"...",
+//            inputfile);
+//
+//        /* Open file for both reading and writing */
+//        src = fopen(inputfile, "w+");
+//        if (!src) {
+//            Display_printf(display, 0, 0,
+//                "Error: \"%s\" could not be created.\nPlease check the "
+//                "Board.html if additional jumpers are necessary.\n",
+//                inputfile);
+//            Display_printf(display, 0, 0, "Aborting...\n");
+//            while (1);
+//        }
+//
+//        fwrite(textarray, 1, strlen(textarray), src);
+//        fflush(src);
+//
+//        /* Reset the internal file pointer */
+//        rewind(src);
+//
+//        Display_printf(display, 0, 0, "done\n");
+//    }
+//    else {
+//        Display_printf(display, 0, 0, "Using existing copy of \"%s\"\n",
+//            inputfile);
+//    }
+//
+//    /* Create a new file object for the file copy */
+//    dst = fopen(outputfile, "w");
+//    if (!dst) {
+//        Display_printf(display, 0, 0, "Error opening \"%s\"\n", outputfile);
+//        Display_printf(display, 0, 0, "Aborting...\n");
+//        while (1);
+//    }
+//    else {
+//        Display_printf(display, 0, 0, "Starting file copy\n");
+//    }
+//
+//    /*  Copy the contents from the src to the dst */
+//    while (true) {
+//        /*  Read from source file */
+//        bytesRead = fread(cpy_buff, 1, CPY_BUFF_SIZE, src);
+//        if (bytesRead == 0) {
+//            break; /* Error or EOF */
+//        }
+//
+//        /*  Write to dst file */
+//        bytesWritten = fwrite(cpy_buff, 1, bytesRead, dst);
+//        if (bytesWritten < bytesRead) {
+//            Display_printf(display, 0, 0, "Disk Full\n");
+//            break; /* Error or Disk Full */
+//        }
+//
+//        /*  Update the total number of bytes copied */
+//        totalBytesCopied += bytesWritten;
+//    }
+//
+//    fflush(dst);
+//
+//    /* Get the filesize of the source file */
+//    fseek(src, 0, SEEK_END);
+//    filesize = ftell(src);
+//    rewind(src);
+//
+//    /* Close both inputfile[] and outputfile[] */
+//    fclose(src);
+//    fclose(dst);
+//
+//    Display_printf(display, 0, 0,
+//        "File \"%s\" (%u B) copied to \"%s\" (Wrote %u B)\n",
+//        inputfile, filesize, outputfile, totalBytesCopied);
+//
+//    /* Now output the outputfile[] contents onto the console */
+//    dst = fopen(outputfile, "r");
+//    if (!dst) {
+//        Display_printf(display, 0, 0, "Error opening \"%s\"\n", outputfile);
+//        Display_printf(display, 0, 0, "Aborting...\n");
+//        while (1);
+//    }
+//
+//    /* Print file contents */
+//    while (true) {
+//        /* Read from output file */
+//        bytesRead = fread(cpy_buff, 1, CPY_BUFF_SIZE, dst);
+//        if (bytesRead == 0) {
+//            break; /* Error or EOF */
+//        }
+//        cpy_buff[bytesRead] = '\0';
+//        /* Write output */
+//        Display_printf(display, 0, 0, "%s", cpy_buff);
+//    }
+//
+//    /* Close the file */
+//    fclose(dst);
+//
+//    /* Stopping the SDCard */
+//    SDFatFS_close(sdfatfsHandle);
+//    Display_printf(display, 0, 0, "Drive %u unmounted\n", DRIVE_NUM);
 
-    /* Variables for the CIO functions */
-    FILE *src, *dst;
-
-    /* Variables to keep track of the file copy progress */
-    unsigned int bytesRead = 0;
-    unsigned int bytesWritten = 0;
-    unsigned int filesize;
-    unsigned int totalBytesCopied = 0;
-
-    /* Call driver init functions */
-    GPIO_init();
-    Display_init();
-    SDFatFS_init();
-
-    /* Configure the LED pin */
-    GPIO_setConfig(CONFIG_GPIO_LED_0, GPIO_CFG_OUT_STD | GPIO_CFG_OUT_LOW);
-
-    /* add_device() should be called once and is used for all media types */
-    add_device(fatfsPrefix, _MSA, ffcio_open, ffcio_close, ffcio_read,
-        ffcio_write, ffcio_lseek, ffcio_unlink, ffcio_rename);
-
-    /* Open the display for output */
-    display = Display_open(Display_Type_UART, NULL);
-    if (display == NULL) {
-        /* Failed to open display driver */
-        while (1);
-    }
-
-    /* Turn on user LED */
-    GPIO_write(CONFIG_GPIO_LED_0, CONFIG_GPIO_LED_ON);
-
-    Display_printf(display, 0, 0, "Starting the fatsd example\n");
-    Display_printf(display, 0, 0,
-        "This example requires a FAT filesystem on the SD card.\n");
-    Display_printf(display, 0, 0,
-        "You will get errors if your SD card is not formatted with a filesystem.\n");
-
-    /* Mount and register the SD Card */
-    sdfatfsHandle = SDFatFS_open(CONFIG_SDFatFS_0, DRIVE_NUM);
-    if (sdfatfsHandle == NULL) {
-        Display_printf(display, 0, 0, "Error starting the SD card\n");
-        while (1);
-    }
-    else {
-        Display_printf(display, 0, 0, "Drive %u is mounted\n", DRIVE_NUM);
-    }
-
-    /* Try to open the source file */
-    src = fopen(inputfile, "r");
-    if (!src) {
-        Display_printf(display, 0, 0, "Creating a new file \"%s\"...",
-            inputfile);
-
-        /* Open file for both reading and writing */
-        src = fopen(inputfile, "w+");
-        if (!src) {
-            Display_printf(display, 0, 0,
-                "Error: \"%s\" could not be created.\nPlease check the "
-                "Board.html if additional jumpers are necessary.\n",
-                inputfile);
-            Display_printf(display, 0, 0, "Aborting...\n");
-            while (1);
-        }
-
-        fwrite(textarray, 1, strlen(textarray), src);
-        fflush(src);
-
-        /* Reset the internal file pointer */
-        rewind(src);
-
-        Display_printf(display, 0, 0, "done\n");
-    }
-    else {
-        Display_printf(display, 0, 0, "Using existing copy of \"%s\"\n",
-            inputfile);
-    }
-
-    /* Create a new file object for the file copy */
-    dst = fopen(outputfile, "w");
-    if (!dst) {
-        Display_printf(display, 0, 0, "Error opening \"%s\"\n", outputfile);
-        Display_printf(display, 0, 0, "Aborting...\n");
-        while (1);
-    }
-    else {
-        Display_printf(display, 0, 0, "Starting file copy\n");
-    }
-
-    /*  Copy the contents from the src to the dst */
-    while (true) {
-        /*  Read from source file */
-        bytesRead = fread(cpy_buff, 1, CPY_BUFF_SIZE, src);
-        if (bytesRead == 0) {
-            break; /* Error or EOF */
-        }
-
-        /*  Write to dst file */
-        bytesWritten = fwrite(cpy_buff, 1, bytesRead, dst);
-        if (bytesWritten < bytesRead) {
-            Display_printf(display, 0, 0, "Disk Full\n");
-            break; /* Error or Disk Full */
-        }
-
-        /*  Update the total number of bytes copied */
-        totalBytesCopied += bytesWritten;
-    }
-
-    fflush(dst);
-
-    /* Get the filesize of the source file */
-    fseek(src, 0, SEEK_END);
-    filesize = ftell(src);
-    rewind(src);
-
-    /* Close both inputfile[] and outputfile[] */
-    fclose(src);
-    fclose(dst);
-
-    Display_printf(display, 0, 0,
-        "File \"%s\" (%u B) copied to \"%s\" (Wrote %u B)\n",
-        inputfile, filesize, outputfile, totalBytesCopied);
-
-    /* Now output the outputfile[] contents onto the console */
-    dst = fopen(outputfile, "r");
-    if (!dst) {
-        Display_printf(display, 0, 0, "Error opening \"%s\"\n", outputfile);
-        Display_printf(display, 0, 0, "Aborting...\n");
-        while (1);
-    }
-
-    /* Print file contents */
-    while (true) {
-        /* Read from output file */
-        bytesRead = fread(cpy_buff, 1, CPY_BUFF_SIZE, dst);
-        if (bytesRead == 0) {
-            break; /* Error or EOF */
-        }
-        cpy_buff[bytesRead] = '\0';
-        /* Write output */
-        Display_printf(display, 0, 0, "%s", cpy_buff);
-    }
-
-    /* Close the file */
-    fclose(dst);
-
-    /* Stopping the SDCard */
-    SDFatFS_close(sdfatfsHandle);
-    Display_printf(display, 0, 0, "Drive %u unmounted\n", DRIVE_NUM);
-
-    mpu6050();
+    //mpu6050();
+    lcd_i2c_init();
 
     return (NULL);
 }
