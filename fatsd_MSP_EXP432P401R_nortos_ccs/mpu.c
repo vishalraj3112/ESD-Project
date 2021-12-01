@@ -52,6 +52,7 @@
 /* Driver configuration */
 #include "ti_drivers_config.h"
 #include "mpu.h"
+#include "lcd.h"
 
 // I2C configuration
 I2C_Params mpu6050Params;
@@ -81,6 +82,7 @@ int angle_pitch_buffer, angle_roll_buffer;
 bool set_gyro_angles;
 float angle_roll_acc, angle_pitch_acc;
 float angle_pitch_output, angle_roll_output;
+uint8_t angle_pitch_int;
 //***Value processing code***
 
 //Display_Params  uartParams;
@@ -109,6 +111,9 @@ void mpu6050(void)
 
     MPU6050_Reset();
 
+    lcd_set_cursor(0,0);
+    lcd_print("Gyro angles:");
+    lcd_set_cursor(12,0);
     while(1)
     {
         MPU6050_ReadData(accelerometer, gyro, &temp);
@@ -119,7 +124,12 @@ void mpu6050(void)
 //        Display_print3(uartHandle, 1, 0, "Gyro   X_OUT= %d   Y_OUT= %d   Z_OUT= %d\r\n",gyro[0], gyro[1], gyro[2]);
 //        Display_print1(uartHandle, 2, 0, "Temperature= %2f \r\n", (temp/340.0) + 36.53);
         Display_print2(display, 3, 0,"Pitch : %f^ , Roll : %f^",angle_pitch_output,angle_roll_output);
-       // printf("Pitch : %f^ , Roll : %f^\r\n",angle_pitch_output,angle_roll_output);
+        angle_pitch_int = (int)angle_pitch_output;
+        //lcd_print(&angle_pitch_int);
+        lcd_print("Angl");
+        delay_ms(1000);
+        lcd_set_cursor(12,0);
+        // printf("Pitch : %f^ , Roll : %f^\r\n",angle_pitch_output,angle_roll_output);
         //usleep(500000);
         usleep(500);
     }

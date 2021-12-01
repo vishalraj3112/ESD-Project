@@ -111,8 +111,8 @@ void *mainThread(void *arg0)
 //    unsigned int totalBytesCopied = 0;
 //
 //    /* Call driver init functions */
-//    GPIO_init();
-//    Display_init();
+    GPIO_init();
+    Display_init();
 //    SDFatFS_init();
 //
 //    /* Configure the LED pin */
@@ -123,11 +123,11 @@ void *mainThread(void *arg0)
 //        ffcio_write, ffcio_lseek, ffcio_unlink, ffcio_rename);
 //
 //    /* Open the display for output */
-//    display = Display_open(Display_Type_UART, NULL);
-//    if (display == NULL) {
-//        /* Failed to open display driver */
-//        while (1);
-//    }
+    display = Display_open(Display_Type_UART, NULL);
+    if (display == NULL) {
+        /* Failed to open display driver */
+        while (1);
+    }
 //
 //    /* Turn on user LED */
 //    GPIO_write(CONFIG_GPIO_LED_0, CONFIG_GPIO_LED_ON);
@@ -250,8 +250,9 @@ void *mainThread(void *arg0)
 //    SDFatFS_close(sdfatfsHandle);
 //    Display_printf(display, 0, 0, "Drive %u unmounted\n", DRIVE_NUM);
 
-    //mpu6050();
     lcd_i2c_init();
+    mpu6050();
+
 
     return (NULL);
 }

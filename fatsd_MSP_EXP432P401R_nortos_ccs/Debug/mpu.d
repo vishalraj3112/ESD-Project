@@ -39,6 +39,7 @@ mpu.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/drivers/UART.h
 mpu.obj: syscfg/ti_drivers_config.h
 mpu.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/DeviceFamily.h
 mpu.obj: ../mpu.h
+mpu.obj: ../lcd.h
 
 ../mpu.c:
 
@@ -117,4 +118,6 @@ syscfg/ti_drivers_config.h:
 C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/DeviceFamily.h:
 
 ../mpu.h:
+
+../lcd.h:
 

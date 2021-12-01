@@ -1,37 +1,37 @@
 ******************************************************************************
                   TI ARM Linker PC v20.2.5                     
 ******************************************************************************
->> Linked Tue Nov 30 22:24:02 2021
+>> Linked Wed Dec  1 11:05:35 2021
 
 OUTPUT FILE NAME:   <fatsd_MSP_EXP432P401R_nortos_ccs.out>
-ENTRY POINT SYMBOL: "resetISR"  address: 000050f9
+ENTRY POINT SYMBOL: "resetISR"  address: 000085e1
 
 
 MEMORY CONFIGURATION
 
          name            origin    length      used     unused   attr    fill
 ----------------------  --------  ---------  --------  --------  ----  --------
-  MAIN                  00000000   00040000  0000576a  0003a896  R  X
+  MAIN                  00000000   00040000  00008fa2  0003705e  R  X
   INFO                  00200000   00004000  00000000  00004000  R  X
-  SRAM_CODE             01000000   00010000  000099a5  0000665b  RW X
-  SRAM_DATA             20000000   00010000  000099a5  0000665b  RW  
+  SRAM_CODE             01000000   00010000  00009eea  00006116  RW X
+  SRAM_DATA             20000000   00010000  00009eea  00006116  RW  
 
 
 SEGMENT ALLOCATION MAP
 
 run origin  load origin   length   init length attrs members
 ----------  ----------- ---------- ----------- ----- -------
-00000000    00000000    00005770   00005770    r-x
+00000000    00000000    00008fa8   00008fa8    r-x
   00000000    00000000    00000144   00000144    r-- .intvecs
-  00000144    00000144    000052b0   000052b0    r-x .text
-  000053f4    000053f4    0000025e   0000025e    r-- .const
-  00005658    00005658    00000118   00000118    r-- .cinit
-20000000    20000000    000088c1   00000000    rw-
+  00000144    00000144    00008862   00008862    r-x .text
+  000089a8    000089a8    000004e4   000004e4    r-- .const
+  00008e90    00008e90    00000118   00000118    r-- .cinit
+20000000    20000000    00008e05   00000000    rw-
   20000000    20000000    00008000   00000000    rw- .sysmem
-  20008000    20008000    000004ec   00000000    rw- .data
-  200084f0    200084f0    000003d1   00000000    rw- .bss
-20008c00    20008c00    000000e8   00000000    rw-
-  20008c00    20008c00    000000e8   00000000    rw- .vtable
+  20008000    20008000    000008ed   00000000    rw- .bss
+  200088f0    200088f0    00000515   00000000    rw- .data
+20009000    20009000    000000e8   00000000    rw-
+  20009000    20009000    000000e8   00000000    rw- .vtable
 2000f000    2000f000    00001000   00000000    rw-
   2000f000    2000f000    00001000   00000000    rw- .stack
 
@@ -41,259 +41,347 @@ SECTION ALLOCATION MAP
  output                                  attributes/
 section   page    origin      length       input sections
 --------  ----  ----------  ----------   ----------------
-.text      0    00000144    000052b0     
+.text      0    00000144    00008862     
                   00000144    00000a4e     rtsv7M4_T_le_v4SPD16_eabi.lib : _printfi.c.obj (.text:__TI_printfi)
                   00000b92    00000002     ti_drivers_config.obj (.text:Board_initHook)
-                  00000b94    000002f8     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.text:Power_sleep)
-                  00000e8c    00000288                               : PowerMSP432.oem4f (.text:initPerfControl)
-                  00001114    00000270     rtsv7M4_T_le_v4SPD16_eabi.lib : _printfi.c.obj (.text:_pconv_a)
-                  00001384    000001f8     drivers_msp432p401x.aem4f : I2CMSP432.oem4f (.text:I2CMSP432_open)
-                  0000157c    000001d0     rtsv7M4_T_le_v4SPD16_eabi.lib : _printfi.c.obj (.text:_pconv_g)
-                  0000174c    000001b6                                   : fd_add_t2.asm.obj (.text)
-                  00001902    00000184     drivers_msp432p401x.aem4f : I2CMSP432.oem4f (.text:I2CMSP432_hwiIntFxn)
-                  00001a86    00000002                               : I2CMSP432.oem4f (.text:I2CMSP432_init)
-                  00001a88    00000170                               : GPIOMSP432.oem4f (.text:GPIO_setConfig)
-                  00001bf8    0000013c     rtsv7M4_T_le_v4SPD16_eabi.lib : _printfi.c.obj (.text:_pconv_e)
-                  00001d34    00000136                                   : fd_div_t2.asm.obj (.text)
-                  00001e6a    00000002     msp432p4xx_driverlib.lib : interrupt.o (.text:IntDefaultHandler)
-                  00001e6c    00000124     rtsv7M4_T_le_v4SPD16_eabi.lib : _printfi.c.obj (.text:fcvt)
-                  00001f90    0000011c     drivers_msp432p401x.aem4f : I2CMSP432.oem4f (.text:primeTransfer)
-                  000020ac    00000114     rtsv7M4_T_le_v4SPD16_eabi.lib : fputs.c.obj (.text:fputs)
-                  000021c0    00000110                                   : s_scalbn.c.obj (.text:scalbn)
-                  000022d0    00000100                                   : memory.c.obj (.text:aligned_alloc)
-                  000023d0    000000fc                                   : fd_mul_t2.asm.obj (.text)
-                  000024cc    000000f0     drivers_msp432p401x.aem4f : I2CMSP432.oem4f (.text:I2CMSP432_transfer)
-                  000025bc    000000e4     msp432p4xx_driverlib.lib : cs.o (.text:CS_startHFXTWithTimeout)
-                  000026a0    000000e4     rtsv7M4_T_le_v4SPD16_eabi.lib : memory.c.obj (.text:free)
-                  00002784    000000e0     msp432p4xx_driverlib.lib : cs.o (.text:CS_startLFXTWithTimeout)
-                  00002864    000000e0     nortos_msp432p401x.aem4f : TimerPMSP432_nortos.oem4f (.text:TimerP_construct)
-                  00002944    000000dc     msp432p4xx_driverlib.lib : cs.o (.text:_CSGetHFXTFrequency)
-                  00002a20    000000dc     rtsv7M4_T_le_v4SPD16_eabi.lib : setvbuf.c.obj (.text:setvbuf)
-                  00002afc    000000d8     nortos_msp432p401x.aem4f : SwiP_nortos.oem4f (.text:SwiP_construct)
-                  00002bd4    000000b4                              : ClockPTimer_nortos.oem4f (.text:ClockP_startup)
-                  00002c88    000000b1     rtsv7M4_T_le_v4SPD16_eabi.lib : _printfi.c.obj (.text:_ltostr)
-                  00002d39    00000001     --HOLE-- [fill = 0]
-                  00002d3a    00000002     nortos_msp432p401x.aem4f : PowerMSP432_nortos.oem4f (.text:PowerMSP432_initPolicy)
-                  00002d3c    000000ac                              : ClockPTimer_nortos.oem4f (.text:ClockP_workFuncDynamic)
-                  00002de8    000000ac     drivers_msp432p401x.aem4f : GPIOMSP432.oem4f (.text:GPIO_init)
-                  00002e94    000000ac                               : I2CMSP432.oem4f (.text:I2CMSP432_cancel)
-                  00002f40    000000a4     lcd.obj (.text:lcd_init)
-                  00002fe4    000000a0     nortos_msp432p401x.aem4f : SemaphoreP_nortos.oem4f (.text:SemaphoreP_pend)
-                  00003084    0000009c     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.text:Power_init)
-                  00003120    0000009c     nortos_msp432p401x.aem4f : SwiP_nortos.oem4f (.text:SwiP_dispatch)
-                  000031bc    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.asm.obj (.text)
-                  00003258    00000096                                   : ull_div_t2.asm.obj (.text)
-                  000032ee    00000002     nortos_msp432p401x.aem4f : PowerMSP432_nortos.oem4f (.text:PowerMSP432_updateFreqs)
-                  000032f0    0000008c     rtsv7M4_T_le_v4SPD16_eabi.lib : fputc.c.obj (.text:fputc)
-                  0000337c    00000086                                   : fd_cmp_t2.asm.obj (.text:__aeabi_cdcmple)
-                  00003402    00000086                                   : fd_cmp_t2.asm.obj (.text:__aeabi_cdrcmple)
-                  00003488    00000084     lcd.obj (.text:lcd_i2c_init)
-                  0000350c    00000084     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.text:restartHFXT)
-                  00003590    00000080     nortos_msp432p401x.aem4f : ClockPTimer_nortos.oem4f (.text:ClockP_start)
-                  00003610    00000080     msp432p4xx_driverlib.lib : interrupt.o (.text:Interrupt_disableInterrupt)
-                  00003690    00000080                              : interrupt.o (.text:Interrupt_enableInterrupt)
-                  00003710    0000007a     rtsv7M4_T_le_v4SPD16_eabi.lib : memset_t2.asm.obj (.text)
-                  0000378a    00000002                                   : _lock.c.obj (.text:_nop)
-                  0000378c    00000078     nortos_msp432p401x.aem4f : ClockPTimer_nortos.oem4f (.text:ClockP_walkQueueDynamic)
-                  00003804    00000076     drivers_msp432p401x.aem4f : I2CMSP432.oem4f (.text:I2CMSP432_close)
-                  0000387a    00000002     nortos_msp432p401x.aem4f : startup_msp432_ccs.oem4f (.text:busFaultISR)
-                  0000387c    00000074     rtsv7M4_T_le_v4SPD16_eabi.lib : fclose.c.obj (.text:__TI_closefile)
-                  000038f0    00000070     nortos_msp432p401x.aem4f : HwiPMSP432_nortos.oem4f (.text:HwiP_construct)
-                  00003960    00000070     rtsv7M4_T_le_v4SPD16_eabi.lib : memory.c.obj (.text:split)
-                  000039d0    0000006e                                   : _printfi.c.obj (.text:_mcpy)
-                  00003a3e    00000002     nortos_msp432p401x.aem4f : SemaphoreP_nortos.oem4f (.text:clkFxn)
-                  00003a40    0000006c     rtsv7M4_T_le_v4SPD16_eabi.lib : hostrename.c.obj (.text:HOSTrename)
-                  00003aac    0000006c     msp432p4xx_driverlib.lib : i2c.o (.text:I2C_masterSendMultiByteFinish)
-                  00003b18    0000006c     nortos_msp432p401x.aem4f : TimerPMSP432_nortos.oem4f (.text:TimerP_getCurrentTick)
-                  00003b84    00000068     drivers_msp432p401x.aem4f : GPIOMSP432.oem4f (.text:GPIO_hwiIntFxn)
-                  00003bec    00000068     rtsv7M4_T_le_v4SPD16_eabi.lib : hostlseek.c.obj (.text:HOSTlseek)
-                  00003c54    00000068     msp432p4xx_driverlib.lib : interrupt.o (.text:Interrupt_pendInterrupt)
-                  00003cbc    00000068     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.text:PowerMSP432_getFreqs)
-                  00003d24    00000068     nortos_msp432p401x.aem4f : SwiP_nortos.oem4f (.text:SwiP_post)
-                  00003d8c    00000068     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
-                  00003df4    00000068     drivers_msp432p401x.aem4f : I2CMSP432.oem4f (.text:initHw)
-                  00003e5c    00000068     rtsv7M4_T_le_v4SPD16_eabi.lib : printf.c.obj (.text:printf)
-                  00003ec4    00000064                                   : s_frexp.c.obj (.text:frexp)
-                  00003f28    00000064                                   : fseek.c.obj (.text:fseek)
-                  00003f8c    00000062                                   : _io_perm.c.obj (.text:__TI_wrt_ok)
-                  00003fee    00000002     nortos_msp432p401x.aem4f : startup_msp432_ccs.oem4f (.text:defaultISR)
-                  00003ff0    00000060     drivers_msp432p401x.aem4f : GPIOMSP432.oem4f (.text:GPIO_setCallback)
-                  00004050    00000060     rtsv7M4_T_le_v4SPD16_eabi.lib : hostopen.c.obj (.text:HOSTopen)
-                  000040b0    0000005c     msp432p4xx_driverlib.lib : interrupt.o (.text:Interrupt_registerInterrupt)
-                  0000410c    0000005c     rtsv7M4_T_le_v4SPD16_eabi.lib : close.c.obj (.text:close)
-                  00004168    00000058                                   : hostread.c.obj (.text:HOSTread)
-                  000041c0    00000058                                   : hostwrite.c.obj (.text:HOSTwrite)
-                  00004218    00000058     nortos_msp432p401x.aem4f : TimerPMSP432_nortos.oem4f (.text:TimerP_dynamicStub)
-                  00004270    00000056     rtsv7M4_T_le_v4SPD16_eabi.lib : _printfi.c.obj (.text:_pconv_f)
-                  000042c6    00000056     drivers_msp432p401x.aem4f : I2CMSP432.oem4f (.text:completeTransfer)
-                  0000431c    00000054     msp432p4xx_driverlib.lib : interrupt.o (.text:Interrupt_setPriority)
-                  00004370    00000054     rtsv7M4_T_le_v4SPD16_eabi.lib : _ltoa.c.obj (.text:__TI_ltoa)
-                  000043c4    00000052                                   : _printfi.c.obj (.text:_ecpy)
-                  00004416    00000002     nortos_msp432p401x.aem4f : startup_msp432_ccs.oem4f (.text:faultISR)
-                  00004418    00000050                              : SemaphoreP_nortos.oem4f (.text:SemaphoreP_construct)
-                  00004468    0000004c     rtsv7M4_T_le_v4SPD16_eabi.lib : fflush.c.obj (.text:__TI_doflush)
-                  000044b4    0000004c                                   : atoi.c.obj (.text:atoi)
-                  00004500    00000048     nortos_msp432p401x.aem4f : PowerMSP432_nortos.oem4f (.text:PowerMSP432_sleepPolicy)
-                  00004548    00000048     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.text:Power_releaseConstraint)
-                  00004590    00000048     rtsv7M4_T_le_v4SPD16_eabi.lib : exit.c.obj (.text:exit)
-                  000045d8    00000048     lcd.obj (.text:i2c_write)
-                  00004620    00000048     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_toi_t2.asm.obj (.text)
-                  00004668    00000044                                   : hostclose.c.obj (.text:HOSTclose)
-                  000046ac    00000044                                   : hostunlink.c.obj (.text:HOSTunlink)
-                  000046f0    00000044     drivers_msp432p401x.aem4f : I2C.oem4f (.text:I2C_init)
-                  00004734    00000044     nortos_msp432p401x.aem4f : SemaphoreP_nortos.oem4f (.text:SemaphoreP_post)
-                  00004778    00000044                              : SwiP_nortos.oem4f (.text:SwiP_restore)
-                  000047bc    00000044                              : TimerPMSP432_nortos.oem4f (.text:TimerP_start)
-                  00004800    00000044     rtsv7M4_T_le_v4SPD16_eabi.lib : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
-                  00004844    00000044                                   : getdevice.c.obj (.text:getdevice)
-                  00004888    00000044     drivers_msp432p401x.aem4f : I2CMSP432.oem4f (.text:perfChangeNotifyFxn)
-                  000048cc    00000042     lcd.obj (.text:lcd_send)
-                  0000490e    00000002     nortos_msp432p401x.aem4f : startup_msp432_ccs.oem4f (.text:nmiISR)
-                  00004910    00000040     drivers_msp432p401x.aem4f : I2C.oem4f (.text:I2C_open)
-                  00004950    00000040     nortos_msp432p401x.aem4f : TimerPMSP432_nortos.oem4f (.text:TimerP_setNextTick)
-                  00004990    0000003e     rtsv7M4_T_le_v4SPD16_eabi.lib : _printfi.c.obj (.text:_fcpy)
-                  000049ce    00000002                                   : div0.asm.obj (.text)
-                  000049d0    0000003c     nortos_msp432p401x.aem4f : TimerPMSP432_nortos.oem4f (.text:TimerP_initDevice)
-                  00004a0c    00000038     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.text:Power_setConstraint)
-                  00004a44    00000038     rtsv7M4_T_le_v4SPD16_eabi.lib : trgmsg.c.obj (.text:__TI_writemsg)
-                  00004a7c    00000038     lcd.obj (.text:lcd_set_cursor)
-                  00004ab4    00000038     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.text:notify)
-                  00004aec    00000036     rtsv7M4_T_le_v4SPD16_eabi.lib : strncpy.c.obj (.text:strncpy)
-                  00004b22    00000002     --HOLE-- [fill = 0]
-                  00004b24    00000034                                   : fopen.c.obj (.text:__TI_cleanup)
-                  00004b58    00000034                                   : trgmsg.c.obj (.text:__TI_readmsg)
-                  00004b8c    00000034                                   : boot_cortex_m.c.obj (.text:_c_int00_noargs:_c_int00_noargs)
-                  00004bc0    00000030     lcd.obj (.text:delay_ms)
-                  00004bf0    00000030     rtsv7M4_T_le_v4SPD16_eabi.lib : getdevice.c.obj (.text:finddevice)
-                  00004c20    00000030     drivers_msp432p401x.aem4f : I2CMSP432.oem4f (.text:mapPin)
-                  00004c50    0000002e     rtsv7M4_T_le_v4SPD16_eabi.lib : i_tofd_t2.asm.obj (.text)
-                  00004c7e    0000002c     lcd.obj (.text:pulse_enable)
-                  00004caa    00000002     --HOLE-- [fill = 0]
-                  00004cac    0000002c     rtsv7M4_T_le_v4SPD16_eabi.lib : unlink.c.obj (.text:unlink)
-                  00004cd8    0000002a     nortos_msp432p401x.aem4f : HwiPMSP432_nortos.oem4f (.text:HwiP_create)
-                  00004d02    00000002     --HOLE-- [fill = 0]
-                  00004d04    00000028     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.text:Power_registerNotify)
-                  00004d2c    00000028                               : PowerMSP432.oem4f (.text:disableFaultCounter)
-                  00004d54    00000028                               : PowerMSP432.oem4f (.text:disableHFXT)
-                  00004d7c    00000028     rtsv7M4_T_le_v4SPD16_eabi.lib : memory.c.obj (.text:free_list_insert)
-                  00004da4    00000028                                   : lseek.c.obj (.text:lseek)
-                  00004dcc    00000028                                   : write.c.obj (.text:write)
-                  00004df4    00000026     drivers_msp432p401x.aem4f : List.oem4f (.text:List_put)
-                  00004e1a    00000026                               : List.oem4f (.text:List_remove)
-                  00004e40    00000024     nortos_msp432p401x.aem4f : ClockPTimer_nortos.oem4f (.text:ClockP_getTicks)
-                  00004e64    00000024                              : ClockPTimer_nortos.oem4f (.text:ClockP_scheduleNextTick)
-                  00004e88    00000024                              : HwiPMSP432_nortos.oem4f (.text:HwiP_dispatch)
-                  00004eac    00000022     lcd.obj (.text:lcd_print)
-                  00004ece    00000002     --HOLE-- [fill = 0]
-                  00004ed0    00000020     msp432p4xx_driverlib.lib : cs.o (.text:CS_setExternalClockSourceFrequency)
-                  00004ef0    00000020     nortos_msp432p401x.aem4f : ClockPTimer_nortos.oem4f (.text:ClockP_add)
-                  00004f10    00000020     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.text:Power_unregisterNotify)
-                  00004f30    00000020     nortos_msp432p401x.aem4f : QueueP_nortos.oem4f (.text:QueueP_put)
-                  00004f50    00000020     lcd.obj (.text:lcd_display)
-                  00004f70    00000020     rtsv7M4_T_le_v4SPD16_eabi.lib : memchr.c.obj (.text:memchr)
-                  00004f90    0000001c     msp432p4xx_driverlib.lib : interrupt.o (.text:Interrupt_unregisterInterrupt)
-                  00004fac    0000001c     nortos_msp432p401x.aem4f : SwiP_nortos.oem4f (.text:SwiP_disable)
-                  00004fc8    0000001c     rtsv7M4_T_le_v4SPD16_eabi.lib : memory.c.obj (.text:free_list_remove)
-                  00004fe4    0000001c                                   : memccpy.c.obj (.text:memccpy)
-                  00005000    0000001a     nortos_msp432p401x.aem4f : QueueP_nortos.oem4f (.text:QueueP_get)
-                  0000501a    0000001a                              : SemaphoreP_nortos.oem4f (.text:SemaphoreP_createBinary)
-                  00005034    0000001a     rtsv7M4_T_le_v4SPD16_eabi.lib : s_copysign.c.obj (.text:copysign)
-                  0000504e    00000018     nortos_msp432p401x.aem4f : ClockPTimer_nortos.oem4f (.text:ClockP_destruct)
-                  00005066    00000018                              : HwiPMSP432_nortos.oem4f (.text:HwiP_delete)
-                  0000507e    00000002     --HOLE-- [fill = 0]
-                  00005080    00000018                              : HwiPMSP432_nortos.oem4f (.text:HwiP_inISR)
-                  00005098    00000018     drivers_msp432p401x.aem4f : I2C.oem4f (.text:I2C_transfer)
-                  000050b0    00000018     msp432p4xx_driverlib.lib : sysctl_a.o (.text:SysCtl_A_disableNMISource)
-                  000050c8    00000018                              : sysctl_a.o (.text:SysCtl_A_enableNMISource)
-                  000050e0    00000018     lcd.obj (.text:lcd_4bit_write)
-                  000050f8    00000018     nortos_msp432p401x.aem4f : startup_msp432_ccs.oem4f (.text:resetISR)
-                  00005110    00000018     rtsv7M4_T_le_v4SPD16_eabi.lib : strcmp.c.obj (.text:strcmp)
-                  00005128    00000016     nortos_msp432p401x.aem4f : SemaphoreP_nortos.oem4f (.text:SemaphoreP_create)
-                  0000513e    00000016                              : SwiP_nortos.oem4f (.text:maxbit)
-                  00005154    00000016     rtsv7M4_T_le_v4SPD16_eabi.lib : strchr.c.obj (.text:strchr)
-                  0000516a    00000002     --HOLE-- [fill = 0]
-                  0000516c    00000014     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.text:Power_idleFunc)
-                  00005180    00000014     nortos_msp432p401x.aem4f : SwiP_nortos.oem4f (.text:SwiP_handleHwi)
-                  00005194    00000014                              : TimerPMSP432_nortos.oem4f (.text:TimerP_getCount)
-                  000051a8    00000014     rtsv7M4_T_le_v4SPD16_eabi.lib : strcpy.c.obj (.text:strcpy)
-                  000051bc    00000014                                   : strlen.c.obj (.text:strlen)
-                  000051d0    00000012     nortos_msp432p401x.aem4f : HwiPMSP432_nortos.oem4f (.text:HwiP_Params_init)
-                  000051e2    00000012     lcd.obj (.text:lcd_cmd)
-                  000051f4    00000012     main_nortos.obj (.text:main)
-                  00005206    00000012     rtsv7M4_T_le_v4SPD16_eabi.lib : wcslen.c.obj (.text:wcslen)
-                  00005218    00000010     nortos_msp432p401x.aem4f : HwiPMSP432_nortos.oem4f (.text:HwiP_disable)
-                  00005228    00000010     drivers_msp432p401x.aem4f : I2C.oem4f (.text:I2C_Params_init)
-                  00005238    00000010     msp432p4xx_driverlib.lib : interrupt.o (.text:Interrupt_disableMaster)
-                  00005248    00000010                              : interrupt.o (.text:Interrupt_enableMaster)
-                  00005258    00000010     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.text:PowerMSP432_getNumPerfLevels)
-                  00005268    00000010                               : PowerMSP432.oem4f (.text:Power_disablePolicy)
-                  00005278    00000010                               : PowerMSP432.oem4f (.text:Power_enablePolicy)
-                  00005288    00000010     nortos_msp432p401x.aem4f : SemaphoreP_nortos.oem4f (.text:SemaphoreP_Params_init)
-                  00005298    00000010                              : SwiP_nortos.oem4f (.text:SwiP_Params_init)
-                  000052a8    00000010     msp432p4xx_driverlib.lib : sysctl_a.o (.text:SysCtl_A_getNMISourceStatus)
-                  000052b8    00000010                              : sysctl.o (.text:SysCtl_getNMISourceStatus)
-                  000052c8    00000010     nortos_msp432p401x.aem4f : TimerPMSP432_nortos.oem4f (.text:TimerP_Params_init)
-                  000052d8    00000010     lcd.obj (.text:lcd_clear)
-                  000052e8    00000010     lcd.obj (.text:lcd_home)
-                  000052f8    0000000e     nortos_msp432p401x.aem4f : QueueP_nortos.oem4f (.text:QueueP_empty)
-                  00005306    0000000e                              : QueueP_nortos.oem4f (.text:QueueP_remove)
-                  00005314    0000000e     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
-                  00005322    0000000c     ti_drivers_config.obj (.text:Board_init)
-                  0000532e    0000000c     msp432p4xx_driverlib.lib : cpu.o (.text:CPU_cpsid)
-                  0000533a    0000000c                              : cpu.o (.text:CPU_cpsie)
-                  00005346    00000002     --HOLE-- [fill = 0]
-                  00005348    0000000c     nortos_msp432p401x.aem4f : ClockPTimer_nortos.oem4f (.text:ClockP_doTick)
-                  00005354    0000000c     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.text:Power_getConstraintMask)
-                  00005360    0000000c                               : PowerMSP432.oem4f (.text:Power_getPerformanceLevel)
-                  0000536c    0000000c     nortos_msp432p401x.aem4f : TimerPMSP432_nortos.oem4f (.text:TimerP_getFreq)
-                  00005378    0000000c                              : TimerPMSP432_nortos.oem4f (.text:TimerP_getMaxTicks)
-                  00005384    0000000c     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init)
-                  00005390    0000000c     fatsd_nortos.obj (.text:mainThread)
-                  0000539c    00000008     nortos_msp432p401x.aem4f : HwiPMSP432_nortos.oem4f (.text:HwiP_restore)
-                  000053a4    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : errno.c.obj (.text:__aeabi_errno_addr)
-                  000053ac    00000008     drivers_msp432p401x.aem4f : I2CMSP432.oem4f (.text:blockingTransferCallback)
-                  000053b4    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : memory.c.obj (.text:malloc)
-                  000053bc    00000006     drivers_msp432p401x.aem4f : I2CMSP432.oem4f (.text:I2CMSP432_control)
-                  000053c2    00000006     nortos_msp432p401x.aem4f : QueueP_nortos.oem4f (.text:QueueP_init)
-                  000053c8    00000004                              : ClockPTimer_nortos.oem4f (.text:ClockP_isActive)
-                  000053cc    00000004                              : HwiPMSP432_nortos.oem4f (.text:HwiP_enable)
-                  000053d0    00000004                              : HwiPMSP432_nortos.oem4f (.text:HwiP_post)
-                  000053d4    00000004                              : QueueP_nortos.oem4f (.text:QueueP_head)
-                  000053d8    00000004                              : QueueP_nortos.oem4f (.text:QueueP_next)
-                  000053dc    00000004                              : SemaphoreP_nortos.oem4f (.text:SemaphoreP_delete)
-                  000053e0    00000004                              : TimerPMSP432_nortos.oem4f (.text:TimerP_setPeriod)
-                  000053e4    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : printf.c.obj (.text:_outc)
-                  000053e8    00000004                                   : printf.c.obj (.text:_outs)
-                  000053ec    00000004                                   : pre_init.c.obj (.text:_system_pre_init)
-                  000053f0    00000004                                   : exit.c.obj (.text:abort:abort)
+                  00000b94    00000738     rtsv7M4_T_le_v4SPD16_eabi.lib : k_rem_pio2.c.obj (.text:__kernel_rem_pio2)
+                  000012cc    000005e0                                   : s_sin.c.obj (.text:sin)
+                  000018ac    00000430     mpu.obj (.text:process_raw_values)
+                  00001cdc    000003d4     rtsv7M4_T_le_v4SPD16_eabi.lib : e_asin.c.obj (.text:asin)
+                  000020b0    000002f8     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.text:Power_sleep)
+                  000023a8    000002d8     nortos_msp432p401x.aem4f : SystemP_nortos.oem4f (.text:doPrint)
+                  00002680    000002d0     drivers_msp432p401x.aem4f : UARTMSP432.oem4f (.text:UARTMSP432_open)
+                  00002950    00000288                               : PowerMSP432.oem4f (.text:initPerfControl)
+                  00002bd8    00000270     rtsv7M4_T_le_v4SPD16_eabi.lib : _printfi.c.obj (.text:_pconv_a)
+                  00002e48    000001f8     drivers_msp432p401x.aem4f : I2CMSP432.oem4f (.text:I2CMSP432_open)
+                  00003040    000001d0     rtsv7M4_T_le_v4SPD16_eabi.lib : _printfi.c.obj (.text:_pconv_g)
+                  00003210    000001c0     mpu.obj (.text:MPU6050_Reset)
+                  000033d0    000001b6     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_add_t2.asm.obj (.text)
+                  00003586    00000184     drivers_msp432p401x.aem4f : I2CMSP432.oem4f (.text:I2CMSP432_hwiIntFxn)
+                  0000370a    00000002     display.aem4f : DisplayUart.oem4f (.text:DisplayUartMin_clear)
+                  0000370c    00000174     rtsv7M4_T_le_v4SPD16_eabi.lib : k_sin.c.obj (.text:__kernel_sin)
+                  00003880    00000170     drivers_msp432p401x.aem4f : GPIOMSP432.oem4f (.text:GPIO_setConfig)
+                  000039f0    00000170     rtsv7M4_T_le_v4SPD16_eabi.lib : k_cos.c.obj (.text:__kernel_cos)
+                  00003b60    00000158                                   : e_sqrt.c.obj (.text:sqrt)
+                  00003cb8    0000013c                                   : _printfi.c.obj (.text:_pconv_e)
+                  00003df4    00000136                                   : fd_div_t2.asm.obj (.text)
+                  00003f2a    00000002     display.aem4f : DisplayUart.oem4f (.text:DisplayUartMin_clearLines)
+                  00003f2c    00000124     mpu.obj (.text:MPU6050_ReadData)
+                  00004050    00000124     rtsv7M4_T_le_v4SPD16_eabi.lib : _printfi.c.obj (.text:fcvt)
+                  00004174    00000124     mpu.obj (.text:mpu6050)
+                  00004298    0000011c     msp432p4xx_driverlib.lib : uart.o (.text:UART_initModule)
+                  000043b4    0000011c     drivers_msp432p401x.aem4f : I2CMSP432.oem4f (.text:primeTransfer)
+                  000044d0    00000114     rtsv7M4_T_le_v4SPD16_eabi.lib : fputs.c.obj (.text:fputs)
+                  000045e4    00000110                                   : s_scalbn.c.obj (.text:scalbn)
+                  000046f4    00000100                                   : memory.c.obj (.text:aligned_alloc)
+                  000047f4    000000fc                                   : fd_mul_t2.asm.obj (.text)
+                  000048f0    000000f8                                   : s_floor.c.obj (.text:floor)
+                  000049e8    000000f0     drivers_msp432p401x.aem4f : I2CMSP432.oem4f (.text:I2CMSP432_transfer)
+                  00004ad8    000000e4     msp432p4xx_driverlib.lib : cs.o (.text:CS_startHFXTWithTimeout)
+                  00004bbc    000000e4     rtsv7M4_T_le_v4SPD16_eabi.lib : memory.c.obj (.text:free)
+                  00004ca0    000000e0     msp432p4xx_driverlib.lib : cs.o (.text:CS_startLFXTWithTimeout)
+                  00004d80    000000e0     nortos_msp432p401x.aem4f : TimerPMSP432_nortos.oem4f (.text:TimerP_construct)
+                  00004e60    000000dc     drivers_msp432p401x.aem4f : UARTMSP432.oem4f (.text:UARTMSP432_readPolling)
+                  00004f3c    000000dc     msp432p4xx_driverlib.lib : cs.o (.text:_CSGetHFXTFrequency)
+                  00005018    000000dc     rtsv7M4_T_le_v4SPD16_eabi.lib : setvbuf.c.obj (.text:setvbuf)
+                  000050f4    000000d8     nortos_msp432p401x.aem4f : SwiP_nortos.oem4f (.text:SwiP_construct)
+                  000051cc    000000ca     drivers_msp432p401x.aem4f : UARTMSP432.oem4f (.text:UARTMSP432_hwiIntFxn)
+                  00005296    00000002     display.aem4f : DisplayUart.oem4f (.text:DisplayUartMin_init)
+                  00005298    000000b8     drivers_msp432p401x.aem4f : UARTMSP432.oem4f (.text:initHw)
+                  00005350    000000b8                               : UARTMSP432.oem4f (.text:readTaskCallback)
+                  00005408    000000b4     nortos_msp432p401x.aem4f : ClockPTimer_nortos.oem4f (.text:ClockP_startup)
+                  000054bc    000000b4     drivers_msp432p401x.aem4f : UARTMSP432.oem4f (.text:UARTMSP432_control)
+                  00005570    000000b4                               : UARTMSP432.oem4f (.text:UARTMSP432_writePolling)
+                  00005624    000000b1     rtsv7M4_T_le_v4SPD16_eabi.lib : _printfi.c.obj (.text:_ltostr)
+                  000056d5    00000001     --HOLE-- [fill = 0]
+                  000056d6    00000002     drivers_msp432p401x.aem4f : I2CMSP432.oem4f (.text:I2CMSP432_init)
+                  000056d8    000000ac     nortos_msp432p401x.aem4f : ClockPTimer_nortos.oem4f (.text:ClockP_workFuncDynamic)
+                  00005784    000000ac     drivers_msp432p401x.aem4f : GPIOMSP432.oem4f (.text:GPIO_init)
+                  00005830    000000ac                               : I2CMSP432.oem4f (.text:I2CMSP432_cancel)
+                  000058dc    000000a8                               : UARTMSP432.oem4f (.text:UARTMSP432_write)
+                  00005984    000000a8                               : UARTMSP432.oem4f (.text:readTaskBlocking)
+                  00005a2c    000000a4     lcd.obj (.text:lcd_init)
+                  00005ad0    000000a0     nortos_msp432p401x.aem4f : SemaphoreP_nortos.oem4f (.text:SemaphoreP_pend)
+                  00005b70    000000a0     drivers_msp432p401x.aem4f : UARTMSP432.oem4f (.text:readIsrTextCallback)
+                  00005c10    0000009c                               : PowerMSP432.oem4f (.text:Power_init)
+                  00005cac    0000009c     nortos_msp432p401x.aem4f : SwiP_nortos.oem4f (.text:SwiP_dispatch)
+                  00005d48    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.asm.obj (.text)
+                  00005de4    00000096                                   : ull_div_t2.asm.obj (.text)
+                  00005e7a    00000092     drivers_msp432p401x.aem4f : UARTMSP432.oem4f (.text:UARTMSP432_close)
+                  00005f0c    00000092                               : UARTMSP432.oem4f (.text:writeData)
+                  00005f9e    00000002     msp432p4xx_driverlib.lib : interrupt.o (.text:IntDefaultHandler)
+                  00005fa0    0000008c     rtsv7M4_T_le_v4SPD16_eabi.lib : fputc.c.obj (.text:fputc)
+                  0000602c    0000008c     drivers_msp432p401x.aem4f : UARTMSP432.oem4f (.text:readIsrTextBlocking)
+                  000060b8    00000086     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_cmp_t2.asm.obj (.text:__aeabi_cdcmple)
+                  0000613e    00000086                                   : fd_cmp_t2.asm.obj (.text:__aeabi_cdrcmple)
+                  000061c4    00000084     lcd.obj (.text:lcd_i2c_init)
+                  00006248    00000084     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.text:restartHFXT)
+                  000062cc    00000080     nortos_msp432p401x.aem4f : ClockPTimer_nortos.oem4f (.text:ClockP_start)
+                  0000634c    00000080     msp432p4xx_driverlib.lib : interrupt.o (.text:Interrupt_disableInterrupt)
+                  000063cc    00000080                              : interrupt.o (.text:Interrupt_enableInterrupt)
+                  0000644c    0000007a     rtsv7M4_T_le_v4SPD16_eabi.lib : memset_t2.asm.obj (.text)
+                  000064c6    00000002     nortos_msp432p401x.aem4f : PowerMSP432_nortos.oem4f (.text:PowerMSP432_initPolicy)
+                  000064c8    00000078                              : ClockPTimer_nortos.oem4f (.text:ClockP_walkQueueDynamic)
+                  00006540    00000076     drivers_msp432p401x.aem4f : I2CMSP432.oem4f (.text:I2CMSP432_close)
+                  000065b6    00000002     nortos_msp432p401x.aem4f : PowerMSP432_nortos.oem4f (.text:PowerMSP432_updateFreqs)
+                  000065b8    00000074     rtsv7M4_T_le_v4SPD16_eabi.lib : fclose.c.obj (.text:__TI_closefile)
+                  0000662c    00000070     nortos_msp432p401x.aem4f : HwiPMSP432_nortos.oem4f (.text:HwiP_construct)
+                  0000669c    00000070     drivers_msp432p401x.aem4f : UARTMSP432.oem4f (.text:UARTMSP432_writeCancel)
+                  0000670c    00000070     rtsv7M4_T_le_v4SPD16_eabi.lib : memory.c.obj (.text:split)
+                  0000677c    0000006e                                   : _printfi.c.obj (.text:_mcpy)
+                  000067ea    0000006e                                   : fd_tos_t2.asm.obj (.text)
+                  00006858    0000006d     nortos_msp432p401x.aem4f : SystemP_nortos.oem4f (.text:formatNum)
+                  000068c5    00000001     --HOLE-- [fill = 0]
+                  000068c6    00000002                              : SemaphoreP_nortos.oem4f (.text:SemaphoreP_destruct)
+                  000068c8    0000006c     rtsv7M4_T_le_v4SPD16_eabi.lib : hostrename.c.obj (.text:HOSTrename)
+                  00006934    0000006c     msp432p4xx_driverlib.lib : i2c.o (.text:I2C_masterSendMultiByteFinish)
+                  000069a0    0000006c     nortos_msp432p401x.aem4f : TimerPMSP432_nortos.oem4f (.text:TimerP_getCurrentTick)
+                  00006a0c    00000068                              : ClockPTimer_nortos.oem4f (.text:ClockP_usleep)
+                  00006a74    00000068     drivers_msp432p401x.aem4f : GPIOMSP432.oem4f (.text:GPIO_hwiIntFxn)
+                  00006adc    00000068     rtsv7M4_T_le_v4SPD16_eabi.lib : hostlseek.c.obj (.text:HOSTlseek)
+                  00006b44    00000068     msp432p4xx_driverlib.lib : interrupt.o (.text:Interrupt_pendInterrupt)
+                  00006bac    00000068     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.text:PowerMSP432_getFreqs)
+                  00006c14    00000068     nortos_msp432p401x.aem4f : SwiP_nortos.oem4f (.text:SwiP_post)
+                  00006c7c    00000068     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  00006ce4    00000068     drivers_msp432p401x.aem4f : I2CMSP432.oem4f (.text:initHw)
+                  00006d4c    00000068     rtsv7M4_T_le_v4SPD16_eabi.lib : printf.c.obj (.text:printf)
+                  00006db4    00000064                                   : s_frexp.c.obj (.text:frexp)
+                  00006e18    00000064                                   : fseek.c.obj (.text:fseek)
+                  00006e7c    00000062                                   : _io_perm.c.obj (.text:__TI_wrt_ok)
+                  00006ede    00000002     drivers_msp432p401x.aem4f : UARTMSP432.oem4f (.text:UARTMSP432_init)
+                  00006ee0    00000060                               : GPIOMSP432.oem4f (.text:GPIO_setCallback)
+                  00006f40    00000060     rtsv7M4_T_le_v4SPD16_eabi.lib : hostopen.c.obj (.text:HOSTopen)
+                  00006fa0    0000005c     display.aem4f : Display.oem4f (.text:Display_doOpen)
+                  00006ffc    0000005c     msp432p4xx_driverlib.lib : interrupt.o (.text:Interrupt_registerInterrupt)
+                  00007058    0000005c     rtsv7M4_T_le_v4SPD16_eabi.lib : close.c.obj (.text:close)
+                  000070b4    00000058                                   : hostread.c.obj (.text:HOSTread)
+                  0000710c    00000058                                   : hostwrite.c.obj (.text:HOSTwrite)
+                  00007164    00000058     nortos_msp432p401x.aem4f : TimerPMSP432_nortos.oem4f (.text:TimerP_dynamicStub)
+                  000071bc    00000058     drivers_msp432p401x.aem4f : UARTMSP432.oem4f (.text:readIsrBinaryBlocking)
+                  00007214    00000056     rtsv7M4_T_le_v4SPD16_eabi.lib : _printfi.c.obj (.text:_pconv_f)
+                  0000726a    00000056     drivers_msp432p401x.aem4f : I2CMSP432.oem4f (.text:completeTransfer)
+                  000072c0    00000054     msp432p4xx_driverlib.lib : interrupt.o (.text:Interrupt_setPriority)
+                  00007314    00000054     nortos_msp432p401x.aem4f : TimerPMSP432_nortos.oem4f (.text:TimerP_getCount64)
+                  00007368    00000054     rtsv7M4_T_le_v4SPD16_eabi.lib : _ltoa.c.obj (.text:__TI_ltoa)
+                  000073bc    00000052                                   : _printfi.c.obj (.text:_ecpy)
+                  0000740e    00000002                                   : _lock.c.obj (.text:_nop)
+                  00007410    00000050     nortos_msp432p401x.aem4f : SemaphoreP_nortos.oem4f (.text:SemaphoreP_construct)
+                  00007460    0000004c     rtsv7M4_T_le_v4SPD16_eabi.lib : fflush.c.obj (.text:__TI_doflush)
+                  000074ac    0000004c                                   : atoi.c.obj (.text:atoi)
+                  000074f8    0000004c     drivers_msp432p401x.aem4f : UARTMSP432.oem4f (.text:readIsrBinaryCallback)
+                  00007544    0000004a     display.aem4f : DisplayUart.oem4f (.text:DisplayUartMin_open)
+                  0000758e    00000002     nortos_msp432p401x.aem4f : startup_msp432_ccs.oem4f (.text:busFaultISR)
+                  00007590    00000048                              : ClockPTimer_nortos.oem4f (.text:ClockP_construct)
+                  000075d8    00000048                              : PowerMSP432_nortos.oem4f (.text:PowerMSP432_sleepPolicy)
+                  00007620    00000048     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.text:Power_releaseConstraint)
+                  00007668    00000048     rtsv7M4_T_le_v4SPD16_eabi.lib : exit.c.obj (.text:exit)
+                  000076b0    00000048     lcd.obj (.text:i2c_write)
+                  000076f8    00000048     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_toi_t2.asm.obj (.text)
+                  00007740    00000046     display.aem4f : DisplayUart.oem4f (.text:DisplayUartMin_vprintf)
+                  00007786    00000046     drivers_msp432p401x.aem4f : RingBuf.oem4f (.text:RingBuf_put)
+                  000077cc    00000044     rtsv7M4_T_le_v4SPD16_eabi.lib : hostclose.c.obj (.text:HOSTclose)
+                  00007810    00000044                                   : hostunlink.c.obj (.text:HOSTunlink)
+                  00007854    00000044     drivers_msp432p401x.aem4f : I2C.oem4f (.text:I2C_init)
+                  00007898    00000044     nortos_msp432p401x.aem4f : SemaphoreP_nortos.oem4f (.text:SemaphoreP_post)
+                  000078dc    00000044                              : SwiP_nortos.oem4f (.text:SwiP_restore)
+                  00007920    00000044                              : TimerPMSP432_nortos.oem4f (.text:TimerP_start)
+                  00007964    00000044     drivers_msp432p401x.aem4f : UART.oem4f (.text:UART_init)
+                  000079a8    00000044     rtsv7M4_T_le_v4SPD16_eabi.lib : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  000079ec    00000044                                   : getdevice.c.obj (.text:getdevice)
+                  00007a30    00000044     drivers_msp432p401x.aem4f : I2CMSP432.oem4f (.text:perfChangeNotifyFxn)
+                  00007a74    00000044     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_tou_t2.asm.obj (.text)
+                  00007ab8    00000042     lcd.obj (.text:lcd_send)
+                  00007afa    00000002     nortos_msp432p401x.aem4f : SemaphoreP_nortos.oem4f (.text:clkFxn)
+                  00007afc    00000040     drivers_msp432p401x.aem4f : I2C.oem4f (.text:I2C_open)
+                  00007b3c    00000040                               : RingBuf.oem4f (.text:RingBuf_get)
+                  00007b7c    00000040     nortos_msp432p401x.aem4f : TimerPMSP432_nortos.oem4f (.text:TimerP_setNextTick)
+                  00007bbc    00000040     drivers_msp432p401x.aem4f : UARTMSP432.oem4f (.text:UARTMSP432_read)
+                  00007bfc    00000040                               : UART.oem4f (.text:UART_open)
+                  00007c3c    00000040                               : UARTMSP432.oem4f (.text:perfChangeNotifyFxn)
+                  00007c7c    00000040     rtsv7M4_T_le_v4SPD16_eabi.lib : u_divt2.asm.obj (.text)
+                  00007cbc    0000003e                                   : _printfi.c.obj (.text:_fcpy)
+                  00007cfa    00000002     nortos_msp432p401x.aem4f : startup_msp432_ccs.oem4f (.text:defaultISR)
+                  00007cfc    0000003c                              : TimerPMSP432_nortos.oem4f (.text:TimerP_initDevice)
+                  00007d38    00000038     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.text:Power_setConstraint)
+                  00007d70    00000038     rtsv7M4_T_le_v4SPD16_eabi.lib : trgmsg.c.obj (.text:__TI_writemsg)
+                  00007da8    00000038     lcd.obj (.text:lcd_set_cursor)
+                  00007de0    00000038     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.text:notify)
+                  00007e18    00000038     rtsv7M4_T_le_v4SPD16_eabi.lib : fs_tod_t2.asm.obj (.text)
+                  00007e50    00000036     drivers_msp432p401x.aem4f : UARTMSP432.oem4f (.text:UARTMSP432_readCancel)
+                  00007e86    00000036     rtsv7M4_T_le_v4SPD16_eabi.lib : strncpy.c.obj (.text:strncpy)
+                  00007ebc    00000034                                   : fopen.c.obj (.text:__TI_cleanup)
+                  00007ef0    00000034                                   : trgmsg.c.obj (.text:__TI_readmsg)
+                  00007f24    00000034                                   : boot_cortex_m.c.obj (.text:_c_int00_noargs:_c_int00_noargs)
+                  00007f58    00000034     fatsd_nortos.obj (.text:mainThread)
+                  00007f8c    00000030     lcd.obj (.text:delay_ms)
+                  00007fbc    00000030     rtsv7M4_T_le_v4SPD16_eabi.lib : getdevice.c.obj (.text:finddevice)
+                  00007fec    00000030     drivers_msp432p401x.aem4f : I2CMSP432.oem4f (.text:mapPin)
+                  0000801c    00000030                               : UARTMSP432.oem4f (.text:mapPin)
+                  0000804c    0000002e     rtsv7M4_T_le_v4SPD16_eabi.lib : i_tofd_t2.asm.obj (.text)
+                  0000807a    0000002c     lcd.obj (.text:pulse_enable)
+                  000080a6    00000002     nortos_msp432p401x.aem4f : startup_msp432_ccs.oem4f (.text:faultISR)
+                  000080a8    0000002c     rtsv7M4_T_le_v4SPD16_eabi.lib : unlink.c.obj (.text:unlink)
+                  000080d4    0000002a     display.aem4f : Display.oem4f (.text:Display_doPrintf)
+                  000080fe    0000002a     nortos_msp432p401x.aem4f : HwiPMSP432_nortos.oem4f (.text:HwiP_create)
+                  00008128    00000028     display.aem4f : Display.oem4f (.text:Display_doInit)
+                  00008150    00000028     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.text:Power_registerNotify)
+                  00008178    00000028                               : PowerMSP432.oem4f (.text:disableFaultCounter)
+                  000081a0    00000028                               : PowerMSP432.oem4f (.text:disableHFXT)
+                  000081c8    00000028                               : UARTMSP432.oem4f (.text:findBaudDividerIndex)
+                  000081f0    00000028     rtsv7M4_T_le_v4SPD16_eabi.lib : memory.c.obj (.text:free_list_insert)
+                  00008218    00000028                                   : lseek.c.obj (.text:lseek)
+                  00008240    00000028                                   : write.c.obj (.text:write)
+                  00008268    00000026     drivers_msp432p401x.aem4f : List.oem4f (.text:List_put)
+                  0000828e    00000026                               : List.oem4f (.text:List_remove)
+                  000082b4    00000024     nortos_msp432p401x.aem4f : ClockPTimer_nortos.oem4f (.text:ClockP_getTicks)
+                  000082d8    00000024                              : ClockPTimer_nortos.oem4f (.text:ClockP_scheduleNextTick)
+                  000082fc    00000024                              : HwiPMSP432_nortos.oem4f (.text:HwiP_dispatch)
+                  00008320    00000024                              : ClockPTimer_nortos.oem4f (.text:sleepTicks)
+                  00008344    00000022     lcd.obj (.text:lcd_print)
+                  00008366    00000002     nortos_msp432p401x.aem4f : startup_msp432_ccs.oem4f (.text:nmiISR)
+                  00008368    00000020     msp432p4xx_driverlib.lib : cs.o (.text:CS_setExternalClockSourceFrequency)
+                  00008388    00000020     nortos_msp432p401x.aem4f : ClockPTimer_nortos.oem4f (.text:ClockP_add)
+                  000083a8    00000020     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.text:Power_unregisterNotify)
+                  000083c8    00000020     nortos_msp432p401x.aem4f : QueueP_nortos.oem4f (.text:QueueP_put)
+                  000083e8    00000020     drivers_msp432p401x.aem4f : RingBuf.oem4f (.text:RingBuf_peek)
+                  00008408    00000020     lcd.obj (.text:lcd_display)
+                  00008428    00000020     rtsv7M4_T_le_v4SPD16_eabi.lib : memchr.c.obj (.text:memchr)
+                  00008448    0000001c     msp432p4xx_driverlib.lib : interrupt.o (.text:Interrupt_unregisterInterrupt)
+                  00008464    0000001c     nortos_msp432p401x.aem4f : SwiP_nortos.oem4f (.text:SwiP_disable)
+                  00008480    0000001c     rtsv7M4_T_le_v4SPD16_eabi.lib : memory.c.obj (.text:free_list_remove)
+                  0000849c    0000001c                                   : memccpy.c.obj (.text:memccpy)
+                  000084b8    0000001a     nortos_msp432p401x.aem4f : ClockPTimer_nortos.oem4f (.text:ClockP_create)
+                  000084d2    0000001a                              : QueueP_nortos.oem4f (.text:QueueP_get)
+                  000084ec    0000001a                              : SemaphoreP_nortos.oem4f (.text:SemaphoreP_createBinary)
+                  00008506    0000001a     rtsv7M4_T_le_v4SPD16_eabi.lib : s_copysign.c.obj (.text:copysign)
+                  00008520    00000018     nortos_msp432p401x.aem4f : ClockPTimer_nortos.oem4f (.text:ClockP_destruct)
+                  00008538    00000018                              : HwiPMSP432_nortos.oem4f (.text:HwiP_delete)
+                  00008550    00000018                              : HwiPMSP432_nortos.oem4f (.text:HwiP_inISR)
+                  00008568    00000018     drivers_msp432p401x.aem4f : I2C.oem4f (.text:I2C_transfer)
+                  00008580    00000018     msp432p4xx_driverlib.lib : sysctl_a.o (.text:SysCtl_A_disableNMISource)
+                  00008598    00000018                              : sysctl_a.o (.text:SysCtl_A_enableNMISource)
+                  000085b0    00000018     drivers_msp432p401x.aem4f : UART.oem4f (.text:UART_Params_init)
+                  000085c8    00000018     lcd.obj (.text:lcd_4bit_write)
+                  000085e0    00000018     nortos_msp432p401x.aem4f : startup_msp432_ccs.oem4f (.text:resetISR)
+                  000085f8    00000018     rtsv7M4_T_le_v4SPD16_eabi.lib : strcmp.c.obj (.text:strcmp)
+                  00008610    00000016     display.aem4f : DisplayUart.oem4f (.text:DisplayUartMin_close)
+                  00008626    00000016     nortos_msp432p401x.aem4f : SemaphoreP_nortos.oem4f (.text:SemaphoreP_create)
+                  0000863c    00000016                              : SwiP_nortos.oem4f (.text:maxbit)
+                  00008652    00000016                              : SystemP_nortos.oem4f (.text:putChar)
+                  00008668    00000016     rtsv7M4_T_le_v4SPD16_eabi.lib : strchr.c.obj (.text:strchr)
+                  0000867e    00000002                                   : div0.asm.obj (.text)
+                  00008680    00000014     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.text:Power_idleFunc)
+                  00008694    00000014     nortos_msp432p401x.aem4f : SwiP_nortos.oem4f (.text:SwiP_handleHwi)
+                  000086a8    00000014                              : TimerPMSP432_nortos.oem4f (.text:TimerP_getCount)
+                  000086bc    00000014     drivers_msp432p401x.aem4f : UARTMSP432.oem4f (.text:clearTXCPTIFG)
+                  000086d0    00000014     rtsv7M4_T_le_v4SPD16_eabi.lib : strcpy.c.obj (.text:strcpy)
+                  000086e4    00000014                                   : strlen.c.obj (.text:strlen)
+                  000086f8    00000012     nortos_msp432p401x.aem4f : HwiPMSP432_nortos.oem4f (.text:HwiP_Params_init)
+                  0000870a    00000012     drivers_msp432p401x.aem4f : RingBuf.oem4f (.text:RingBuf_construct)
+                  0000871c    00000012     lcd.obj (.text:lcd_cmd)
+                  0000872e    00000012     main_nortos.obj (.text:main)
+                  00008740    00000012     rtsv7M4_T_le_v4SPD16_eabi.lib : wcslen.c.obj (.text:wcslen)
+                  00008752    00000002     --HOLE-- [fill = 0]
+                  00008754    00000010     nortos_msp432p401x.aem4f : ClockPTimer_nortos.oem4f (.text:ClockP_Params_init)
+                  00008764    00000010                              : ClockPTimer_nortos.oem4f (.text:ClockP_delete)
+                  00008774    00000010                              : HwiPMSP432_nortos.oem4f (.text:HwiP_disable)
+                  00008784    00000010     drivers_msp432p401x.aem4f : I2C.oem4f (.text:I2C_Params_init)
+                  00008794    00000010     msp432p4xx_driverlib.lib : interrupt.o (.text:Interrupt_disableMaster)
+                  000087a4    00000010                              : interrupt.o (.text:Interrupt_enableMaster)
+                  000087b4    00000010     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.text:PowerMSP432_getNumPerfLevels)
+                  000087c4    00000010                               : PowerMSP432.oem4f (.text:Power_disablePolicy)
+                  000087d4    00000010                               : PowerMSP432.oem4f (.text:Power_enablePolicy)
+                  000087e4    00000010     nortos_msp432p401x.aem4f : SemaphoreP_nortos.oem4f (.text:SemaphoreP_Params_init)
+                  000087f4    00000010                              : SwiP_nortos.oem4f (.text:SwiP_Params_init)
+                  00008804    00000010     msp432p4xx_driverlib.lib : sysctl_a.o (.text:SysCtl_A_getNMISourceStatus)
+                  00008814    00000010                              : sysctl.o (.text:SysCtl_getNMISourceStatus)
+                  00008824    00000010     nortos_msp432p401x.aem4f : TimerPMSP432_nortos.oem4f (.text:TimerP_Params_init)
+                  00008834    00000010     lcd.obj (.text:lcd_clear)
+                  00008844    00000010     lcd.obj (.text:lcd_home)
+                  00008854    00000010     drivers_msp432p401x.aem4f : UARTMSP432.oem4f (.text:readBlockingTimeout)
+                  00008864    0000000e     nortos_msp432p401x.aem4f : QueueP_nortos.oem4f (.text:QueueP_empty)
+                  00008872    0000000e                              : QueueP_nortos.oem4f (.text:QueueP_remove)
+                  00008880    0000000e     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
+                  0000888e    0000000c     ti_drivers_config.obj (.text:Board_init)
+                  0000889a    0000000c     msp432p4xx_driverlib.lib : cpu.o (.text:CPU_cpsid)
+                  000088a6    0000000c                              : cpu.o (.text:CPU_cpsie)
+                  000088b2    00000002     --HOLE-- [fill = 0]
+                  000088b4    0000000c     nortos_msp432p401x.aem4f : ClockPTimer_nortos.oem4f (.text:ClockP_doTick)
+                  000088c0    0000000c     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.text:Power_getConstraintMask)
+                  000088cc    0000000c                               : PowerMSP432.oem4f (.text:Power_getPerformanceLevel)
+                  000088d8    0000000c     nortos_msp432p401x.aem4f : TimerPMSP432_nortos.oem4f (.text:TimerP_getFreq)
+                  000088e4    0000000c                              : TimerPMSP432_nortos.oem4f (.text:TimerP_getMaxTicks)
+                  000088f0    0000000c     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init)
+                  000088fc    0000000a     drivers_msp432p401x.aem4f : UART.oem4f (.text:UART_close)
+                  00008906    0000000a                               : UART.oem4f (.text:UART_control)
+                  00008910    0000000a                               : UART.oem4f (.text:UART_write)
+                  0000891a    00000008     nortos_msp432p401x.aem4f : HwiPMSP432_nortos.oem4f (.text:HwiP_restore)
+                  00008922    00000002     --HOLE-- [fill = 0]
+                  00008924    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : errno.c.obj (.text:__aeabi_errno_addr)
+                  0000892c    00000008     drivers_msp432p401x.aem4f : I2CMSP432.oem4f (.text:blockingTransferCallback)
+                  00008934    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : memory.c.obj (.text:malloc)
+                  0000893c    00000008     drivers_msp432p401x.aem4f : UARTMSP432.oem4f (.text:readSemCallback)
+                  00008944    00000008                               : UARTMSP432.oem4f (.text:txcptEnabledStatus)
+                  0000894c    00000008                               : UARTMSP432.oem4f (.text:writeSemCallback)
+                  00008954    00000006     nortos_msp432p401x.aem4f : ClockPTimer_nortos.oem4f (.text:ClockP_stop)
+                  0000895a    00000006     display.aem4f : DisplayUart.oem4f (.text:DisplayUartMin_control)
+                  00008960    00000006                   : DisplayUart.oem4f (.text:DisplayUartMin_getType)
+                  00008966    00000006     drivers_msp432p401x.aem4f : I2CMSP432.oem4f (.text:I2CMSP432_control)
+                  0000896c    00000006     nortos_msp432p401x.aem4f : QueueP_nortos.oem4f (.text:QueueP_init)
+                  00008972    00000004                              : ClockPTimer_nortos.oem4f (.text:ClockP_isActive)
+                  00008976    00000004                              : ClockPTimer_nortos.oem4f (.text:ClockP_setTimeout)
+                  0000897a    00000004                              : HwiPMSP432_nortos.oem4f (.text:HwiP_enable)
+                  0000897e    00000004                              : HwiPMSP432_nortos.oem4f (.text:HwiP_post)
+                  00008982    00000004                              : QueueP_nortos.oem4f (.text:QueueP_head)
+                  00008986    00000004                              : QueueP_nortos.oem4f (.text:QueueP_next)
+                  0000898a    00000004                              : SemaphoreP_nortos.oem4f (.text:SemaphoreP_delete)
+                  0000898e    00000004                              : SystemP_nortos.oem4f (.text:SystemP_vsnprintf)
+                  00008992    00000004                              : TimerPMSP432_nortos.oem4f (.text:TimerP_setPeriod)
+                  00008996    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : printf.c.obj (.text:_outc)
+                  0000899a    00000004                                   : printf.c.obj (.text:_outs)
+                  0000899e    00000004                                   : pre_init.c.obj (.text:_system_pre_init)
+                  000089a2    00000004                                   : exit.c.obj (.text:abort:abort)
 
-.const     0    000053f4    0000025e     
-                  000053f4    00000101     rtsv7M4_T_le_v4SPD16_eabi.lib : ctype.c.obj (.const:.string:_ctypes_)
-                  000054f5    00000003     --HOLE-- [fill = 0]
-                  000054f8    00000050     msp432p4xx_driverlib.lib : interrupt.o (.const:g_pulRegs)
-                  00005548    00000038     ti_drivers_config.obj (.const:PowerMSP432_config)
-                  00005580    00000028     ti_drivers_config.obj (.const:i2cMSP432HWAttrs)
-                  000055a8    00000018     drivers_msp432p401x.aem4f : I2CMSP432.oem4f (.const:I2CMSP432_fxnTable)
-                  000055c0    00000018     ti_drivers_config.obj (.const:I2C_config)
-                  000055d8    00000014     ti_drivers_config.obj (.const:GPIOMSP432_config)
-                  000055ec    00000010     lcd.obj (.const:$P$T0$1)
-                  000055fc    00000010     drivers_msp432p401x.aem4f : I2C.oem4f (.const:I2C_defaultParams)
-                  0000560c    00000010     nortos_msp432p401x.aem4f : SwiP_nortos.oem4f (.const:SwiP_defaultParams)
-                  0000561c    0000000c     drivers_msp432p401x.aem4f : I2CMSP432.oem4f (.const:bitRates)
-                  00005628    00000008     msp432p4xx_driverlib.lib : interrupt.o (.const:g_pulDisRegs)
-                  00005630    00000008                              : interrupt.o (.const:g_pulEnRegs)
-                  00005638    00000008                              : interrupt.o (.const:g_pulPendRegs)
-                  00005640    00000006     drivers_msp432p401x.aem4f : GPIOMSP432.oem4f (.const:.string:interruptType)
-                  00005646    00000006                               : GPIOMSP432.oem4f (.const:.string:portInterruptIds)
-                  0000564c    00000006     ti_drivers_config.obj (.const)
+.const     0    000089a8    000004e4     
+                  000089a8    00000158     rtsv7M4_T_le_v4SPD16_eabi.lib : k_rem_pio2.c.obj (.const:$O1$$)
+                  00008b00    00000101                                   : ctype.c.obj (.const:.string:_ctypes_)
+                  00008c01    00000002     mpu.obj (.const:.string:$P$T0$1)
+                  00008c03    00000001     display.aem4f : Display.oem4f (.const:Display_defaultParams)
+                  00008c04    00000050     msp432p4xx_driverlib.lib : interrupt.o (.const:g_pulRegs)
+                  00008c54    00000040     ti_drivers_config.obj (.const:uartMSP432Baudrates)
+                  00008c94    00000038     ti_drivers_config.obj (.const:PowerMSP432_config)
+                  00008ccc    0000002c     ti_drivers_config.obj (.const:uartMSP432HWAttrs)
+                  00008cf8    00000028     drivers_msp432p401x.aem4f : UARTMSP432.oem4f (.const:UARTMSP432_fxnTable)
+                  00008d20    00000028     ti_drivers_config.obj (.const:i2cMSP432HWAttrs)
+                  00008d48    00000024     drivers_msp432p401x.aem4f : UART.oem4f (.const:UART_defaultParams)
+                  00008d6c    00000020     display.aem4f : DisplayUart.oem4f (.const:DisplayUartMin_fxnTable)
+                  00008d8c    00000020     drivers_msp432p401x.aem4f : UARTMSP432.oem4f (.const:staticFxnTable)
+                  00008dac    00000018                               : I2CMSP432.oem4f (.const:I2CMSP432_fxnTable)
+                  00008dc4    00000018     ti_drivers_config.obj (.const:I2C_config)
+                  00008ddc    00000014     ti_drivers_config.obj (.const:GPIOMSP432_config)
+                  00008df0    00000014     ti_drivers_config.obj (.const:displayUartHWAttrs)
+                  00008e04    00000010     lcd.obj (.const:$P$T0$1)
+                  00008e14    00000010     drivers_msp432p401x.aem4f : I2C.oem4f (.const:I2C_defaultParams)
+                  00008e24    00000010     nortos_msp432p401x.aem4f : SwiP_nortos.oem4f (.const:SwiP_defaultParams)
+                  00008e34    0000000c     ti_drivers_config.obj (.const:Display_config)
+                  00008e40    0000000c     ti_drivers_config.obj (.const:UART_config)
+                  00008e4c    0000000c     drivers_msp432p401x.aem4f : I2CMSP432.oem4f (.const:bitRates)
+                  00008e58    00000008     msp432p4xx_driverlib.lib : interrupt.o (.const:g_pulDisRegs)
+                  00008e60    00000008                              : interrupt.o (.const:g_pulEnRegs)
+                  00008e68    00000008                              : interrupt.o (.const:g_pulPendRegs)
+                  00008e70    00000006     drivers_msp432p401x.aem4f : GPIOMSP432.oem4f (.const:.string:interruptType)
+                  00008e76    00000006                               : GPIOMSP432.oem4f (.const:.string:portInterruptIds)
+                  00008e7c    00000006     ti_drivers_config.obj (.const)
+                  00008e82    00000005     drivers_msp432p401x.aem4f : UARTMSP432.oem4f (.const:.string:parityTypes)
+                  00008e87    00000001     --HOLE-- [fill = 0]
+                  00008e88    00000004                               : UARTMSP432.oem4f (.const:stopBits)
 
-.cinit     0    00005658    00000118     
-                  00005658    000000e0     (.cinit..data.load) [load image, compression = lzss]
-                  00005738    0000000c     (__TI_handler_table)
-                  00005744    00000004     --HOLE-- [fill = 0]
-                  00005748    00000008     (.cinit..bss.load) [load image, compression = zero_init]
-                  00005750    00000008     (.cinit..vtable.load) [load image, compression = zero_init]
-                  00005758    00000018     (__TI_cinit_table)
+.cinit     0    00008e90    00000118     
+                  00008e90    000000e4     (.cinit..data.load) [load image, compression = lzss]
+                  00008f74    0000000c     (__TI_handler_table)
+                  00008f80    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00008f88    00000008     (.cinit..vtable.load) [load image, compression = zero_init]
+                  00008f90    00000018     (__TI_cinit_table)
 
 .init_array 
 *          0    00000000    00000000     UNINITIALIZED
@@ -305,56 +393,88 @@ section   page    origin      length       input sections
                   20000000    00000010     rtsv7M4_T_le_v4SPD16_eabi.lib : memory.c.obj (.sysmem)
                   20000010    00007ff0     --HOLE--
 
-.data      0    20008000    000004ec     UNINITIALIZED
-                  20008000    00000140     nortos_msp432p401x.aem4f : HwiPMSP432_nortos.oem4f (.data:HwiP_dispatchTable)
-                  20008140    00000140     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.data:PowerMSP432_perfLevels)
-                  20008280    000000f0     rtsv7M4_T_le_v4SPD16_eabi.lib : defs.c.obj (.data:_ftable)
-                  20008370    00000078                                   : host_device.c.obj (.data:_device)
-                  200083e8    00000050                                   : host_device.c.obj (.data:_stream)
-                  20008438    0000002c     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.data:PowerMSP432_module)
-                  20008464    0000001c     lcd.obj (.data:lcd_i2cTranscation)
-                  20008480    00000010     rtsv7M4_T_le_v4SPD16_eabi.lib : defs.c.obj (.data)
-                  20008490    0000000c                                   : exit.c.obj (.data:$O1$$)
-                  2000849c    0000000c     nortos_msp432p401x.aem4f : TimerPMSP432_nortos.oem4f (.data:TimerP_defaultParams)
-                  200084a8    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : _lock.c.obj (.data:$O1$$)
-                  200084b0    00000008                                   : memory.c.obj (.data:$O1$$)
-                  200084b8    00000008     nortos_msp432p401x.aem4f : SemaphoreP_nortos.oem4f (.data:SemaphoreP_defaultParams)
-                  200084c0    00000008     ti_drivers_config.obj (.data:gpioCallbackFunctions)
-                  200084c8    00000008     ti_drivers_config.obj (.data:gpioPinConfigs)
-                  200084d0    00000008     nortos_msp432p401x.aem4f : ClockPTimer_nortos.oem4f (.data)
-                  200084d8    00000008                              : HwiPMSP432_nortos.oem4f (.data)
-                  200084e0    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : errno.c.obj (.data)
-                  200084e4    00000003     nortos_msp432p401x.aem4f : SemaphoreP_nortos.oem4f (.data)
-                  200084e7    00000002     drivers_msp432p401x.aem4f : GPIOMSP432.oem4f (.data)
-                  200084e9    00000001                               : I2C.oem4f (.data)
-                  200084ea    00000001     nortos_msp432p401x.aem4f : SwiP_nortos.oem4f (.data)
-                  200084eb    00000001                              : TimerPMSP432_nortos.oem4f (.data)
+.bss       0    20008000    000008ed     UNINITIALIZED
+                  20008000    00000400     ti_drivers_config.obj (.bss:displayUARTBuffer)
+                  20008400    00000120     rtsv7M4_T_le_v4SPD16_eabi.lib : trgmsg.c.obj (.bss:_CIOBUF_)
+                  20008520    000000a0     nortos_msp432p401x.aem4f : ClockPTimer_nortos.oem4f (.bss:ClockP_module)
+                  200085c0    000000a0     (.common:__TI_tmpnams)
+                  20008660    000000a0     (.common:i2cMSP432Objects)
+                  20008700    00000080     (.common:uartMSP432Objects)
+                  20008780    00000030     drivers_msp432p401x.aem4f : GPIOMSP432.oem4f (.bss:gpioCallbackInfo)
+                  200087b0    00000020     nortos_msp432p401x.aem4f : SwiP_nortos.oem4f (.bss:SwiP_readyList)
+                  200087d0    00000020     ti_drivers_config.obj (.bss:uartMSP432RingBuffer0)
+                  200087f0    0000001c     nortos_msp432p401x.aem4f : SwiP_nortos.oem4f (.bss:SwiP_hwiStruct)
+                  2000880c    0000001c                              : TimerPMSP432_nortos.oem4f (.bss:TimerP_hwiStruct)
+                  20008828    00000010     (.common:lcd_i2c_params)
+                  20008838    00000010     (.common:mpu6050Params)
+                  20008848    0000000d                              : SwiP_nortos.oem4f (.bss)
+                  20008855    00000001     (.common:angle_pitch_int)
+                  20008856    00000002     (.common:temp)
+                  20008858    0000000c     (.common:displayUartObject)
+                  20008864    00000008     msp432p4xx_driverlib.lib : cs.o (.bss)
+                  2000886c    00000008     nortos_msp432p401x.aem4f : ClockPTimer_nortos.oem4f (.bss:timerFreq)
+                  20008874    00000008     (.common:accelerometer)
+                  2000887c    00000008     (.common:gyro)
+                  20008884    00000008     (.common:parmbuf)
+                  2000888c    00000004     drivers_msp432p401x.aem4f : GPIOMSP432.oem4f (.bss)
+                  20008890    00000004     nortos_msp432p401x.aem4f : ClockPTimer_nortos.oem4f (.bss)
+                  20008894    00000004                              : TimerPMSP432_nortos.oem4f (.bss)
+                  20008898    00000004     (.common:acc_total_vector)
+                  2000889c    00000004     (.common:acc_x)
+                  200088a0    00000004     (.common:acc_y)
+                  200088a4    00000004     (.common:acc_z)
+                  200088a8    00000004     (.common:angle_pitch)
+                  200088ac    00000004     (.common:angle_pitch_acc)
+                  200088b0    00000004     (.common:angle_pitch_output)
+                  200088b4    00000004     (.common:angle_roll)
+                  200088b8    00000004     (.common:angle_roll_acc)
+                  200088bc    00000004     (.common:angle_roll_output)
+                  200088c0    00000004     (.common:angle_yaw)
+                  200088c4    00000004     (.common:display)
+                  200088c8    00000004     (.common:gyro_x)
+                  200088cc    00000004     (.common:gyro_x_cal)
+                  200088d0    00000004     (.common:gyro_y)
+                  200088d4    00000004     (.common:gyro_y_cal)
+                  200088d8    00000004     (.common:gyro_z)
+                  200088dc    00000004     (.common:gyro_z_cal)
+                  200088e0    00000004     (.common:lcd_i2c_handle)
+                  200088e4    00000004     (.common:mpu6050Handle)
+                  200088e8    00000001     (.common:backlight_val)
+                  200088e9    00000001     (.common:display_control)
+                  200088ea    00000001     (.common:display_func)
+                  200088eb    00000001     (.common:display_mode)
+                  200088ec    00000001     (.common:set_gyro_angles)
 
-.bss       0    200084f0    000003d1     UNINITIALIZED
-                  200084f0    00000120     rtsv7M4_T_le_v4SPD16_eabi.lib : trgmsg.c.obj (.bss:_CIOBUF_)
-                  20008610    000000a0     nortos_msp432p401x.aem4f : ClockPTimer_nortos.oem4f (.bss:ClockP_module)
-                  200086b0    000000a0     (.common:__TI_tmpnams)
-                  20008750    000000a0     (.common:i2cMSP432Objects)
-                  200087f0    00000030     drivers_msp432p401x.aem4f : GPIOMSP432.oem4f (.bss:gpioCallbackInfo)
-                  20008820    00000020     nortos_msp432p401x.aem4f : SwiP_nortos.oem4f (.bss:SwiP_readyList)
-                  20008840    0000001c                              : SwiP_nortos.oem4f (.bss:SwiP_hwiStruct)
-                  2000885c    0000001c                              : TimerPMSP432_nortos.oem4f (.bss:TimerP_hwiStruct)
-                  20008878    00000010     (.common:lcd_i2c_params)
-                  20008888    0000000d                              : SwiP_nortos.oem4f (.bss)
-                  20008895    00000001     (.common:backlight_val)
-                  20008896    00000001     (.common:display_control)
-                  20008897    00000001     (.common:display_func)
-                  20008898    00000008     msp432p4xx_driverlib.lib : cs.o (.bss)
-                  200088a0    00000008     nortos_msp432p401x.aem4f : ClockPTimer_nortos.oem4f (.bss:timerFreq)
-                  200088a8    00000008     (.common:parmbuf)
-                  200088b0    00000004     drivers_msp432p401x.aem4f : GPIOMSP432.oem4f (.bss)
-                  200088b4    00000004     nortos_msp432p401x.aem4f : ClockPTimer_nortos.oem4f (.bss)
-                  200088b8    00000004                              : TimerPMSP432_nortos.oem4f (.bss)
-                  200088bc    00000004     (.common:lcd_i2c_handle)
-                  200088c0    00000001     (.common:display_mode)
+.data      0    200088f0    00000515     UNINITIALIZED
+                  200088f0    00000140     nortos_msp432p401x.aem4f : HwiPMSP432_nortos.oem4f (.data:HwiP_dispatchTable)
+                  20008a30    00000140     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.data:PowerMSP432_perfLevels)
+                  20008b70    000000f0     rtsv7M4_T_le_v4SPD16_eabi.lib : defs.c.obj (.data:_ftable)
+                  20008c60    00000078                                   : host_device.c.obj (.data:_device)
+                  20008cd8    00000050                                   : host_device.c.obj (.data:_stream)
+                  20008d28    0000002c     drivers_msp432p401x.aem4f : PowerMSP432.oem4f (.data:PowerMSP432_module)
+                  20008d54    0000001c     mpu.obj (.data:i2cTranscation)
+                  20008d70    0000001c     lcd.obj (.data:lcd_i2cTranscation)
+                  20008d8c    00000010     rtsv7M4_T_le_v4SPD16_eabi.lib : defs.c.obj (.data)
+                  20008d9c    0000000c                                   : exit.c.obj (.data:$O1$$)
+                  20008da8    0000000c     nortos_msp432p401x.aem4f : ClockPTimer_nortos.oem4f (.data:ClockP_defaultParams)
+                  20008db4    0000000c                              : TimerPMSP432_nortos.oem4f (.data:TimerP_defaultParams)
+                  20008dc0    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : _lock.c.obj (.data:$O1$$)
+                  20008dc8    00000008                                   : memory.c.obj (.data:$O1$$)
+                  20008dd0    00000008     nortos_msp432p401x.aem4f : SemaphoreP_nortos.oem4f (.data:SemaphoreP_defaultParams)
+                  20008dd8    00000008     ti_drivers_config.obj (.data:gpioCallbackFunctions)
+                  20008de0    00000008     ti_drivers_config.obj (.data:gpioPinConfigs)
+                  20008de8    00000008     nortos_msp432p401x.aem4f : ClockPTimer_nortos.oem4f (.data)
+                  20008df0    00000008                              : HwiPMSP432_nortos.oem4f (.data)
+                  20008df8    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : errno.c.obj (.data)
+                  20008dfc    00000003     nortos_msp432p401x.aem4f : SemaphoreP_nortos.oem4f (.data)
+                  20008dff    00000002     drivers_msp432p401x.aem4f : GPIOMSP432.oem4f (.data)
+                  20008e01    00000001                               : I2C.oem4f (.data)
+                  20008e02    00000001                               : UART.oem4f (.data)
+                  20008e03    00000001     nortos_msp432p401x.aem4f : SwiP_nortos.oem4f (.data)
+                  20008e04    00000001                              : TimerPMSP432_nortos.oem4f (.data)
 
-.vtable    0    20008c00    000000e8     UNINITIALIZED
-                  20008c00    000000e8     msp432p4xx_driverlib.lib : interrupt.o (.vtable)
+.vtable    0    20009000    000000e8     UNINITIALIZED
+                  20009000    000000e8     msp432p4xx_driverlib.lib : interrupt.o (.vtable)
 
 .stack     0    2000f000    00001000     UNINITIALIZED
                   2000f000    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.stack)
@@ -370,61 +490,80 @@ MODULE SUMMARY
        Module                       code    ro data   rw data
        ------                       ----    -------   -------
     .\
+       mpu.obj                      2104    2         272    
        lcd.obj                      722     16        104    
+       fatsd_nortos.obj             52      0         8      
        main_nortos.obj              18      0         0      
-       fatsd_nortos.obj             12      0         0      
     +--+----------------------------+-------+---------+---------+
-       Total:                       752     16        104    
+       Total:                       2896    18        384    
                                                              
     .\syscfg\
-       ti_drivers_config.obj        14      146       352    
+       ti_drivers_config.obj        14      298       2744   
     +--+----------------------------+-------+---------+---------+
-       Total:                       14      146       352    
+       Total:                       14      298       2744   
                                                              
     C:/ti/simplelink_msp432p4_sdk_3_40_01_02/kernel/nortos/lib/nortos_msp432p401x.aem4f
-       ClockPTimer_nortos.oem4f     744     0         360    
+       ClockPTimer_nortos.oem4f     1024    0         384    
        HwiPMSP432_nortos.oem4f      288     0         656    
+       SystemP_nortos.oem4f         863     0         0      
+       TimerPMSP432_nortos.oem4f    760     0         90     
        SwiP_nortos.oem4f            630     16        148    
-       TimerPMSP432_nortos.oem4f    676     0         90     
-       SemaphoreP_nortos.oem4f      378     0         22     
+       SemaphoreP_nortos.oem4f      380     0         22     
        startup_msp432_ccs.oem4f     32      324       0      
        QueueP_nortos.oem4f          100     0         0      
        PowerMSP432_nortos.oem4f     76      0         0      
     +--+----------------------------+-------+---------+---------+
-       Total:                       2924    340       1276   
+       Total:                       4153    340       1300   
                                                              
     C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/ccs/msp432p4xx_driverlib.lib
        interrupt.o                  598     104       464    
        cs.o                         704     0         16     
+       uart.o                       284     0         0      
        i2c.o                        108     0         0      
        sysctl_a.o                   64      0         0      
        cpu.o                        24      0         0      
        sysctl.o                     16      0         0      
     +--+----------------------------+-------+---------+---------+
-       Total:                       1514    104       480    
+       Total:                       1798    104       480    
+                                                             
+    C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/display/lib/display.aem4f
+       DisplayUart.oem4f            184     32        0      
+       Display.oem4f                174     1         0      
+    +--+----------------------------+-------+---------+---------+
+       Total:                       358     33        0      
                                                              
     C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/drivers/lib/drivers_msp432p401x.aem4f
+       UARTMSP432.oem4f             3406    81        0      
        PowerMSP432.oem4f            2228    0         728    
        I2CMSP432.oem4f              2028    36        0      
        GPIOMSP432.oem4f             740     12        108    
+       UART.oem4f                   186     36        2      
        I2C.oem4f                    172     16        2      
+       RingBuf.oem4f                184     0         0      
        List.oem4f                   76      0         0      
     +--+----------------------------+-------+---------+---------+
-       Total:                       5244    64        838    
+       Total:                       9020    181       840    
                                                              
     C:\ti\ccs1040\ccs\tools\compiler\ti-cgt-arm_20.2.5.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
        _printfi.c.obj               4851    0         0      
+       k_rem_pio2.c.obj             1848    344       0      
+       s_sin.c.obj                  1504    0         0      
+       e_asin.c.obj                 980     0         0      
        defs.c.obj                   0       0         832    
        memory.c.obj                 672     0         16     
        trgmsg.c.obj                 108     0         576    
        fd_add_t2.asm.obj            438     0         0      
        host_device.c.obj            0       0         400    
+       k_sin.c.obj                  372     0         0      
+       k_cos.c.obj                  368     0         0      
+       e_sqrt.c.obj                 344     0         0      
        fd_div_t2.asm.obj            310     0         0      
        fputs.c.obj                  276     0         0      
        s_scalbn.c.obj               272     0         0      
        fd_cmp_t2.asm.obj            268     0         0      
        ctype.c.obj                  0       257       0      
        fd_mul_t2.asm.obj            252     0         0      
+       s_floor.c.obj                248     0         0      
        setvbuf.c.obj                220     0         0      
        memcpy_t2.asm.obj            156     0         0      
        ull_div_t2.asm.obj           150     0         0      
@@ -434,6 +573,7 @@ MODULE SUMMARY
        getdevice.c.obj              116     0         0      
        hostopen.c.obj               96      0         16     
        printf.c.obj                 112     0         0      
+       fd_tos_t2.asm.obj            110     0         0      
        hostrename.c.obj             108     0         0      
        copy_decompress_lzss.c.obj   104     0         0      
        hostlseek.c.obj              104     0         0      
@@ -449,8 +589,11 @@ MODULE SUMMARY
        fflush.c.obj                 76      0         0      
        fd_toi_t2.asm.obj            72      0         0      
        autoinit.c.obj               68      0         0      
+       fd_tou_t2.asm.obj            68      0         0      
        hostclose.c.obj              68      0         0      
        hostunlink.c.obj             68      0         0      
+       u_divt2.asm.obj              64      0         0      
+       fs_tod_t2.asm.obj            56      0         0      
        strncpy.c.obj                54      0         0      
        boot_cortex_m.c.obj          52      0         0      
        fopen.c.obj                  52      0         0      
@@ -473,26 +616,26 @@ MODULE SUMMARY
        pre_init.c.obj               4       0         0      
        div0.asm.obj                 2       0         0      
     +--+----------------------------+-------+---------+---------+
-       Total:                       10705   257       1888   
+       Total:                       16667   601       1888   
                                                              
        Heap:                        0       0         65536  
        Stack:                       0       0         8192   
-       Linker Generated:            0       276       0      
+       Linker Generated:            0       280       0      
     +--+----------------------------+-------+---------+---------+
-       Grand Total:                 21153   1203      78666  
+       Grand Total:                 34906   1855      81364  
 
 
 LINKER GENERATED COPY TABLES
 
-__TI_cinit_table @ 00005758 records: 3, size/record: 8, table size: 24
-	.data: load addr=00005658, load size=000000e0 bytes, run addr=20008000, run size=000004ec bytes, compression=lzss
-	.bss: load addr=00005748, load size=00000008 bytes, run addr=200084f0, run size=000003d1 bytes, compression=zero_init
-	.vtable: load addr=00005750, load size=00000008 bytes, run addr=20008c00, run size=000000e8 bytes, compression=zero_init
+__TI_cinit_table @ 00008f90 records: 3, size/record: 8, table size: 24
+	.data: load addr=00008e90, load size=000000e4 bytes, run addr=200088f0, run size=00000515 bytes, compression=lzss
+	.bss: load addr=00008f80, load size=00000008 bytes, run addr=20008000, run size=000008ed bytes, compression=zero_init
+	.vtable: load addr=00008f88, load size=00000008 bytes, run addr=20009000, run size=000000e8 bytes, compression=zero_init
 
 
 LINKER GENERATED HANDLER TABLE
 
-__TI_handler_table @ 00005738 records: 3, size/record: 4, table size: 12
+__TI_handler_table @ 00008f74 records: 3, size/record: 4, table size: 12
 	index: 0, handler: __TI_decompress_lzss
 	index: 1, handler: __TI_decompress_none
 	index: 2, handler: __TI_zero_init
@@ -502,274 +645,378 @@ GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name
 
 address   name                              
 -------   ----                              
-00005323  Board_init                        
+0000888f  Board_init                        
 00000b93  Board_initHook                    
-000053f1  C$$EXIT                           
-00004a73  C$$IO$$                           
-0000532f  CPU_cpsid                         
-0000533b  CPU_cpsie                         
-00004ed1  CS_setExternalClockSourceFrequency
-000025bd  CS_startHFXTWithTimeout           
-00002785  CS_startLFXTWithTimeout           
-00004ef1  ClockP_add                        
-0000504f  ClockP_destruct                   
-00005349  ClockP_doTick                     
-00004e41  ClockP_getTicks                   
-000053c9  ClockP_isActive                   
-00004e65  ClockP_scheduleNextTick           
-00003591  ClockP_start                      
-00002bd5  ClockP_startup                    
-200084d4  ClockP_tickPeriod                 
-0000378d  ClockP_walkQueueDynamic           
-00002d3d  ClockP_workFuncDynamic            
-0000564c  Display_count                     
-000055d8  GPIOMSP432_config                 
-00003b85  GPIO_hwiIntFxn                    
-00002de9  GPIO_init                         
-00003ff1  GPIO_setCallback                  
-00001a89  GPIO_setConfig                    
-00004669  HOSTclose                         
-00003bed  HOSTlseek                         
-00004051  HOSTopen                          
-00004169  HOSTread                          
-00003a41  HOSTrename                        
-000046ad  HOSTunlink                        
-000041c1  HOSTwrite                         
-000051d1  HwiP_Params_init                  
-000038f1  HwiP_construct                    
-00004cd9  HwiP_create                       
-00005067  HwiP_delete                       
-00005219  HwiP_disable                      
-00004e89  HwiP_dispatch                     
-000053cd  HwiP_enable                       
-00005081  HwiP_inISR                        
-200084d8  HwiP_key                          
-000053d1  HwiP_post                         
-0000539d  HwiP_restore                      
-200084dc  HwiP_swiPIntNum                   
-00002e95  I2CMSP432_cancel                  
-00003805  I2CMSP432_close                   
-000053bd  I2CMSP432_control                 
-000055a8  I2CMSP432_fxnTable                
-00001903  I2CMSP432_hwiIntFxn               
-00001a87  I2CMSP432_init                    
-00001385  I2CMSP432_open                    
-000024cd  I2CMSP432_transfer                
-00005229  I2C_Params_init                   
-000055c0  I2C_config                        
-0000564d  I2C_count                         
-000055fc  I2C_defaultParams                 
-000046f1  I2C_init                          
-00003aad  I2C_masterSendMultiByteFinish     
-00004911  I2C_open                          
-00005099  I2C_transfer                      
-00003611  Interrupt_disableInterrupt        
-00005239  Interrupt_disableMaster           
-00003691  Interrupt_enableInterrupt         
-00005249  Interrupt_enableMaster            
-00003c55  Interrupt_pendInterrupt           
-000040b1  Interrupt_registerInterrupt       
-0000431d  Interrupt_setPriority             
-00004f91  Interrupt_unregisterInterrupt     
-00004df5  List_put                          
-00004e1b  List_remove                       
-000053cd  NoRTOS_start                      
-00005548  PowerMSP432_config                
-00003cbd  PowerMSP432_getFreqs              
-00005259  PowerMSP432_getNumPerfLevels      
-00002d3b  PowerMSP432_initPolicy            
-20008438  PowerMSP432_module                
-20008140  PowerMSP432_perfLevels            
-00004501  PowerMSP432_sleepPolicy           
-000032ef  PowerMSP432_updateFreqs           
-00005269  Power_disablePolicy               
-00005279  Power_enablePolicy                
-00005355  Power_getConstraintMask           
-00005361  Power_getPerformanceLevel         
-0000516d  Power_idleFunc                    
-00003085  Power_init                        
-00004d05  Power_registerNotify              
-00004549  Power_releaseConstraint           
-00004a0d  Power_setConstraint               
-00000b95  Power_sleep                       
-00004f11  Power_unregisterNotify            
-000052f9  QueueP_empty                      
-00005001  QueueP_get                        
-000053d5  QueueP_head                       
-000053c3  QueueP_init                       
-000053d9  QueueP_next                       
-00004f31  QueueP_put                        
-00005307  QueueP_remove                     
-0000564e  SDFatFS_count                     
-0000564f  SD_count                          
-00005650  SPI_count                         
-00005289  SemaphoreP_Params_init            
-00004419  SemaphoreP_construct              
-00005129  SemaphoreP_create                 
-0000501b  SemaphoreP_createBinary           
-200084b8  SemaphoreP_defaultParams          
-000053dd  SemaphoreP_delete                 
-00002fe5  SemaphoreP_pend                   
-00004735  SemaphoreP_post                   
-00005299  SwiP_Params_init                  
-00002afd  SwiP_construct                    
-00004fad  SwiP_disable                      
-00003121  SwiP_dispatch                     
-00003d25  SwiP_post                         
-00004779  SwiP_restore                      
-000050b1  SysCtl_A_disableNMISource         
-000050c9  SysCtl_A_enableNMISource          
-000052a9  SysCtl_A_getNMISourceStatus       
-000052b9  SysCtl_getNMISourceStatus         
-000052c9  TimerP_Params_init                
-00002865  TimerP_construct                  
-00004219  TimerP_dynamicStub                
-00003b19  TimerP_getCurrentTick             
-0000536d  TimerP_getFreq                    
-00005379  TimerP_getMaxTicks                
-000049d1  TimerP_initDevice                 
-00004951  TimerP_setNextTick                
-000053e1  TimerP_setPeriod                  
-000047bd  TimerP_start                      
-00005651  UART_count                        
+000089a3  C$$EXIT                           
+00007d9f  C$$IO$$                           
+0000889b  CPU_cpsid                         
+000088a7  CPU_cpsie                         
+00008369  CS_setExternalClockSourceFrequency
+00004ad9  CS_startHFXTWithTimeout           
+00004ca1  CS_startLFXTWithTimeout           
+00008755  ClockP_Params_init                
+00008389  ClockP_add                        
+00007591  ClockP_construct                  
+000084b9  ClockP_create                     
+00008765  ClockP_delete                     
+00008521  ClockP_destruct                   
+000088b5  ClockP_doTick                     
+000082b5  ClockP_getTicks                   
+00008973  ClockP_isActive                   
+000082d9  ClockP_scheduleNextTick           
+00008977  ClockP_setTimeout                 
+000062cd  ClockP_start                      
+00005409  ClockP_startup                    
+00008955  ClockP_stop                       
+20008dec  ClockP_tickPeriod                 
+00006a0d  ClockP_usleep                     
+000064c9  ClockP_walkQueueDynamic           
+000056d9  ClockP_workFuncDynamic            
+0000370b  DisplayUartMin_clear              
+00003f2b  DisplayUartMin_clearLines         
+00008611  DisplayUartMin_close              
+0000895b  DisplayUartMin_control            
+00008d6c  DisplayUartMin_fxnTable           
+00008961  DisplayUartMin_getType            
+00005297  DisplayUartMin_init               
+00007545  DisplayUartMin_open               
+00007741  DisplayUartMin_vprintf            
+00008e34  Display_config                    
+00008e7c  Display_count                     
+00008c03  Display_defaultParams             
+00008129  Display_doInit                    
+00006fa1  Display_doOpen                    
+000080d5  Display_doPrintf                  
+00008ddc  GPIOMSP432_config                 
+00006a75  GPIO_hwiIntFxn                    
+00005785  GPIO_init                         
+00006ee1  GPIO_setCallback                  
+00003881  GPIO_setConfig                    
+000077cd  HOSTclose                         
+00006add  HOSTlseek                         
+00006f41  HOSTopen                          
+000070b5  HOSTread                          
+000068c9  HOSTrename                        
+00007811  HOSTunlink                        
+0000710d  HOSTwrite                         
+000086f9  HwiP_Params_init                  
+0000662d  HwiP_construct                    
+000080ff  HwiP_create                       
+00008539  HwiP_delete                       
+00008775  HwiP_disable                      
+000082fd  HwiP_dispatch                     
+0000897b  HwiP_enable                       
+00008551  HwiP_inISR                        
+20008df0  HwiP_key                          
+0000897f  HwiP_post                         
+0000891b  HwiP_restore                      
+20008df4  HwiP_swiPIntNum                   
+00005831  I2CMSP432_cancel                  
+00006541  I2CMSP432_close                   
+00008967  I2CMSP432_control                 
+00008dac  I2CMSP432_fxnTable                
+00003587  I2CMSP432_hwiIntFxn               
+000056d7  I2CMSP432_init                    
+00002e49  I2CMSP432_open                    
+000049e9  I2CMSP432_transfer                
+00008785  I2C_Params_init                   
+00008dc4  I2C_config                        
+00008e7d  I2C_count                         
+00008e14  I2C_defaultParams                 
+00007855  I2C_init                          
+00006935  I2C_masterSendMultiByteFinish     
+00007afd  I2C_open                          
+00008569  I2C_transfer                      
+0000634d  Interrupt_disableInterrupt        
+00008795  Interrupt_disableMaster           
+000063cd  Interrupt_enableInterrupt         
+000087a5  Interrupt_enableMaster            
+00006b45  Interrupt_pendInterrupt           
+00006ffd  Interrupt_registerInterrupt       
+000072c1  Interrupt_setPriority             
+00008449  Interrupt_unregisterInterrupt     
+00008269  List_put                          
+0000828f  List_remove                       
+00003f2d  MPU6050_ReadData                  
+00003211  MPU6050_Reset                     
+0000897b  NoRTOS_start                      
+00008c94  PowerMSP432_config                
+00006bad  PowerMSP432_getFreqs              
+000087b5  PowerMSP432_getNumPerfLevels      
+000064c7  PowerMSP432_initPolicy            
+20008d28  PowerMSP432_module                
+20008a30  PowerMSP432_perfLevels            
+000075d9  PowerMSP432_sleepPolicy           
+000065b7  PowerMSP432_updateFreqs           
+000087c5  Power_disablePolicy               
+000087d5  Power_enablePolicy                
+000088c1  Power_getConstraintMask           
+000088cd  Power_getPerformanceLevel         
+00008681  Power_idleFunc                    
+00005c11  Power_init                        
+00008151  Power_registerNotify              
+00007621  Power_releaseConstraint           
+00007d39  Power_setConstraint               
+000020b1  Power_sleep                       
+000083a9  Power_unregisterNotify            
+00008865  QueueP_empty                      
+000084d3  QueueP_get                        
+00008983  QueueP_head                       
+0000896d  QueueP_init                       
+00008987  QueueP_next                       
+000083c9  QueueP_put                        
+00008873  QueueP_remove                     
+0000870b  RingBuf_construct                 
+00007b3d  RingBuf_get                       
+000083e9  RingBuf_peek                      
+00007787  RingBuf_put                       
+00008e7e  SDFatFS_count                     
+00008e7f  SD_count                          
+00008e80  SPI_count                         
+000087e5  SemaphoreP_Params_init            
+00007411  SemaphoreP_construct              
+00008627  SemaphoreP_create                 
+000084ed  SemaphoreP_createBinary           
+20008dd0  SemaphoreP_defaultParams          
+0000898b  SemaphoreP_delete                 
+000068c7  SemaphoreP_destruct               
+00005ad1  SemaphoreP_pend                   
+00007899  SemaphoreP_post                   
+000087f5  SwiP_Params_init                  
+000050f5  SwiP_construct                    
+00008465  SwiP_disable                      
+00005cad  SwiP_dispatch                     
+00006c15  SwiP_post                         
+000078dd  SwiP_restore                      
+00008581  SysCtl_A_disableNMISource         
+00008599  SysCtl_A_enableNMISource          
+00008805  SysCtl_A_getNMISourceStatus       
+00008815  SysCtl_getNMISourceStatus         
+0000898f  SystemP_vsnprintf                 
+00008825  TimerP_Params_init                
+00004d81  TimerP_construct                  
+00007165  TimerP_dynamicStub                
+00007315  TimerP_getCount64                 
+000069a1  TimerP_getCurrentTick             
+000088d9  TimerP_getFreq                    
+000088e5  TimerP_getMaxTicks                
+00007cfd  TimerP_initDevice                 
+00007b7d  TimerP_setNextTick                
+00008993  TimerP_setPeriod                  
+00007921  TimerP_start                      
+00005e7b  UARTMSP432_close                  
+000054bd  UARTMSP432_control                
+00008cf8  UARTMSP432_fxnTable               
+000051cd  UARTMSP432_hwiIntFxn              
+00006edf  UARTMSP432_init                   
+00002681  UARTMSP432_open                   
+00007bbd  UARTMSP432_read                   
+00007e51  UARTMSP432_readCancel             
+00004e61  UARTMSP432_readPolling            
+000058dd  UARTMSP432_write                  
+0000669d  UARTMSP432_writeCancel            
+00005571  UARTMSP432_writePolling           
+000085b1  UART_Params_init                  
+000088fd  UART_close                        
+00008e40  UART_config                       
+00008907  UART_control                      
+00008e81  UART_count                        
+00008d48  UART_defaultParams                
+00007965  UART_init                         
+00004299  UART_initModule                   
+00007bfd  UART_open                         
+00008911  UART_write                        
 4000480c  WDTCTL_SYM                        
-200084f0  __CIOBUF_                         
+20008400  __CIOBUF_                         
 20010000  __STACK_END                       
 00001000  __STACK_SIZE                      
 00008000  __SYSMEM_SIZE                     
-00005758  __TI_CINIT_Base                   
-00005770  __TI_CINIT_Limit                  
-00005738  __TI_Handler_Table_Base           
-00005744  __TI_Handler_Table_Limit          
-00004801  __TI_auto_init_nobinit_nopinit    
-00004b25  __TI_cleanup                      
-20008490  __TI_cleanup_ptr                  
-0000387d  __TI_closefile                    
-00003d8d  __TI_decompress_lzss              
-00005315  __TI_decompress_none              
-00004469  __TI_doflush                      
-20008494  __TI_dtors_ptr                    
-20008498  __TI_enable_exit_profile_output   
-20008480  __TI_ft_end                       
-00004371  __TI_ltoa                         
+00008f90  __TI_CINIT_Base                   
+00008fa8  __TI_CINIT_Limit                  
+00008f74  __TI_Handler_Table_Base           
+00008f80  __TI_Handler_Table_Limit          
+000079a9  __TI_auto_init_nobinit_nopinit    
+00007ebd  __TI_cleanup                      
+20008d9c  __TI_cleanup_ptr                  
+000065b9  __TI_closefile                    
+00006c7d  __TI_decompress_lzss              
+00008881  __TI_decompress_none              
+00007461  __TI_doflush                      
+20008da0  __TI_dtors_ptr                    
+20008da4  __TI_enable_exit_profile_output   
+20008d8c  __TI_ft_end                       
+00007369  __TI_ltoa                         
 ffffffff  __TI_pprof_out_hndl               
 00000145  __TI_printfi                      
 ffffffff  __TI_prof_data_size               
 ffffffff  __TI_prof_data_start              
-00004b59  __TI_readmsg                      
-00005658  __TI_static_base__                
-200086b0  __TI_tmpnams                      
-00004a45  __TI_writemsg                     
-00003f8d  __TI_wrt_ok                       
-00005385  __TI_zero_init                    
-0000337d  __aeabi_cdcmpeq                   
-0000337d  __aeabi_cdcmple                   
-00003403  __aeabi_cdrcmple                  
-00004621  __aeabi_d2iz                      
-00001757  __aeabi_dadd                      
-00001d35  __aeabi_ddiv                      
-000023d1  __aeabi_dmul                      
-0000174d  __aeabi_dsub                      
-000053a5  __aeabi_errno_addr                
-00004c51  __aeabi_i2d                       
-000049cf  __aeabi_idiv0                     
-000049cf  __aeabi_ldiv0                     
-00003711  __aeabi_memclr                    
-00003711  __aeabi_memclr4                   
-00003711  __aeabi_memclr8                   
-000031bd  __aeabi_memcpy                    
-000031bd  __aeabi_memcpy4                   
-000031bd  __aeabi_memcpy8                   
-00003713  __aeabi_memset                    
-00003713  __aeabi_memset4                   
-00003713  __aeabi_memset8                   
-2000848c  __aeabi_stderr                    
-20008484  __aeabi_stdin                     
-20008488  __aeabi_stdout                    
-00003259  __aeabi_uldivmod                  
+00007ef1  __TI_readmsg                      
+00008e90  __TI_static_base__                
+200085c0  __TI_tmpnams                      
+00007d71  __TI_writemsg                     
+00006e7d  __TI_wrt_ok                       
+000088f1  __TI_zero_init                    
+000060b9  __aeabi_cdcmpeq                   
+000060b9  __aeabi_cdcmple                   
+0000613f  __aeabi_cdrcmple                  
+000067eb  __aeabi_d2f                       
+000076f9  __aeabi_d2iz                      
+00007a75  __aeabi_d2uiz                     
+000033db  __aeabi_dadd                      
+00003df5  __aeabi_ddiv                      
+000047f5  __aeabi_dmul                      
+000033d1  __aeabi_dsub                      
+00008925  __aeabi_errno_addr                
+00007e19  __aeabi_f2d                       
+0000804d  __aeabi_i2d                       
+0000867f  __aeabi_idiv0                     
+0000867f  __aeabi_ldiv0                     
+0000644d  __aeabi_memclr                    
+0000644d  __aeabi_memclr4                   
+0000644d  __aeabi_memclr8                   
+00005d49  __aeabi_memcpy                    
+00005d49  __aeabi_memcpy4                   
+00005d49  __aeabi_memcpy8                   
+0000644f  __aeabi_memset                    
+0000644f  __aeabi_memset4                   
+0000644f  __aeabi_memset8                   
+20008d98  __aeabi_stderr                    
+20008d90  __aeabi_stdin                     
+20008d94  __aeabi_stdout                    
+00007c7d  __aeabi_uidiv                     
+00007c7d  __aeabi_uidivmod                  
+00005de5  __aeabi_uldivmod                  
 ffffffff  __binit__                         
 ffffffff  __c_args__                        
+000039f1  __kernel_cos                      
+00000b95  __kernel_rem_pio2                 
+0000370d  __kernel_sin                      
 UNDEFED   __mpu_init                        
 2000f000  __stack                           
 20000000  __start___llvm_prf_cnts           
 20000000  __stop___llvm_prf_cnts            
-00004b8d  _c_int00_noargs                   
-000053f4  _ctypes_                          
-20008370  _device                           
-20008280  _ftable                           
-200084a8  _lock                             
-0000378b  _nop                              
-200083e8  _stream                           
+00007f25  _c_int00_noargs                   
+00008b00  _ctypes_                          
+20008c60  _device                           
+20008b70  _ftable                           
+20008dc0  _lock                             
+0000740f  _nop                              
+20008cd8  _stream                           
 20000000  _sys_memory                       
 UNDEFED   _system_post_cinit                
-000053ed  _system_pre_init                  
-200084ac  _unlock                           
-000053f1  abort                             
-000022d1  aligned_alloc                     
-000044b5  atoi                              
-20008895  backlight_val                     
+0000899f  _system_pre_init                  
+20008dc4  _unlock                           
+000089a3  abort                             
+20008898  acc_total_vector                  
+2000889c  acc_x                             
+200088a0  acc_y                             
+200088a4  acc_z                             
+20008874  accelerometer                     
+000046f5  aligned_alloc                     
+200088a8  angle_pitch                       
+200088ac  angle_pitch_acc                   
+20008855  angle_pitch_int                   
+200088b0  angle_pitch_output                
+200088b4  angle_roll                        
+200088b8  angle_roll_acc                    
+200088bc  angle_roll_output                 
+200088c0  angle_yaw                         
+00001cdd  asin                              
+00001cdd  asinl                             
+000074ad  atoi                              
+200088e8  backlight_val                     
 ffffffff  binit                             
-00003a3f  clkFxn                            
-0000410d  close                             
-00005035  copysign                          
-00005035  copysignl                         
-20008896  display_control                   
-20008897  display_func                      
-200088c0  display_mode                      
-200084e0  errno                             
-00004591  exit                              
-00004bf1  finddevice                        
-000032f1  fputc                             
-000020ad  fputs                             
-000026a1  free                              
-00003ec5  frexp                             
-00003ec5  frexpl                            
-00003f29  fseek                             
-20008c00  g_pfnRAMVectors                   
-00004845  getdevice                         
-200084c0  gpioCallbackFunctions             
-200084c8  gpioPinConfigs                    
-00005580  i2cMSP432HWAttrs                  
-20008750  i2cMSP432Objects                  
+00007afb  clkFxn                            
+00007059  close                             
+00008507  copysign                          
+00008507  copysignl                         
+00007f8d  delay_ms                          
+200088c4  display                           
+00008df0  displayUartHWAttrs                
+20008858  displayUartObject                 
+200088e9  display_control                   
+200088ea  display_func                      
+200088eb  display_mode                      
+20008df8  errno                             
+00007669  exit                              
+00007fbd  finddevice                        
+000048f1  floor                             
+000048f1  floorl                            
+00005fa1  fputc                             
+000044d1  fputs                             
+00004bbd  free                              
+00006db5  frexp                             
+00006db5  frexpl                            
+00006e19  fseek                             
+20009000  g_pfnRAMVectors                   
+000079ed  getdevice                         
+20008dd8  gpioCallbackFunctions             
+20008de0  gpioPinConfigs                    
+2000887c  gyro                              
+200088c8  gyro_x                            
+200088cc  gyro_x_cal                        
+200088d0  gyro_y                            
+200088d4  gyro_y_cal                        
+200088d8  gyro_z                            
+200088dc  gyro_z_cal                        
+00008d20  i2cMSP432HWAttrs                  
+20008660  i2cMSP432Objects                  
+20008d54  i2cTranscation                    
+000076b1  i2c_write                         
 00000000  interruptVectors                  
-000052d9  lcd_clear                         
-00004f51  lcd_display                       
-000052e9  lcd_home                          
-20008464  lcd_i2cTranscation                
-200088bc  lcd_i2c_handle                    
-00003489  lcd_i2c_init                      
-20008878  lcd_i2c_params                    
-00004ead  lcd_print                         
-000048cd  lcd_send                          
-00004a7d  lcd_set_cursor                    
-000021c1  ldexp                             
-000021c1  ldexpl                            
-00004da5  lseek                             
-000051f5  main                              
-00005391  mainThread                        
-000053b5  malloc                            
-000022d1  memalign                          
-00004fe5  memccpy                           
-00004f71  memchr                            
-000031bd  memcpy                            
-00003719  memset                            
-200088a8  parmbuf                           
-00003e5d  printf                            
-00004c7f  pulse_enable                      
-000032f1  putc                              
-00004cad  remove                            
-000050f9  resetISR                          
-000021c1  scalbn                            
-000021c1  scalbnl                           
-00002a21  setvbuf                           
-00005155  strchr                            
-00005111  strcmp                            
-000051a9  strcpy                            
-000051bd  strlen                            
-00004aed  strncpy                           
-00004cad  unlink                            
-00005207  wcslen                            
-00004dcd  write                             
+000085c9  lcd_4bit_write                    
+00008835  lcd_clear                         
+0000871d  lcd_cmd                           
+00008409  lcd_display                       
+00008845  lcd_home                          
+20008d70  lcd_i2cTranscation                
+200088e0  lcd_i2c_handle                    
+000061c5  lcd_i2c_init                      
+20008828  lcd_i2c_params                    
+00005a2d  lcd_init                          
+00008345  lcd_print                         
+00007ab9  lcd_send                          
+00007da9  lcd_set_cursor                    
+000045e5  ldexp                             
+000045e5  ldexpl                            
+00008219  lseek                             
+0000872f  main                              
+00007f59  mainThread                        
+00008935  malloc                            
+000046f5  memalign                          
+0000849d  memccpy                           
+00008429  memchr                            
+00005d49  memcpy                            
+00006455  memset                            
+00004175  mpu6050                           
+200088e4  mpu6050Handle                     
+20008838  mpu6050Params                     
+20008884  parmbuf                           
+00006d4d  printf                            
+000018ad  process_raw_values                
+0000807b  pulse_enable                      
+00005fa1  putc                              
+000080a9  remove                            
+000085e1  resetISR                          
+000045e5  scalbn                            
+000045e5  scalbnl                           
+200088ec  set_gyro_angles                   
+00005019  setvbuf                           
+000012cd  sin                               
+000012cd  sinl                              
+00003b61  sqrt                              
+00003b61  sqrtl                             
+00008669  strchr                            
+000085f9  strcmp                            
+000086d1  strcpy                            
+000086e5  strlen                            
+00007e87  strncpy                           
+20008856  temp                              
+20008700  uartMSP432Objects                 
+000080a9  unlink                            
+00006a0d  usleep                            
+00008741  wcslen                            
+00008241  write                             
 
 
 GLOBAL SYMBOLS: SORTED BY Symbol Address 
@@ -779,260 +1026,364 @@ address   name
 00000000  interruptVectors                  
 00000145  __TI_printfi                      
 00000b93  Board_initHook                    
-00000b95  Power_sleep                       
+00000b95  __kernel_rem_pio2                 
 00001000  __STACK_SIZE                      
-00001385  I2CMSP432_open                    
-0000174d  __aeabi_dsub                      
-00001757  __aeabi_dadd                      
-00001903  I2CMSP432_hwiIntFxn               
-00001a87  I2CMSP432_init                    
-00001a89  GPIO_setConfig                    
-00001d35  __aeabi_ddiv                      
-000020ad  fputs                             
-000021c1  ldexp                             
-000021c1  ldexpl                            
-000021c1  scalbn                            
-000021c1  scalbnl                           
-000022d1  aligned_alloc                     
-000022d1  memalign                          
-000023d1  __aeabi_dmul                      
-000024cd  I2CMSP432_transfer                
-000025bd  CS_startHFXTWithTimeout           
-000026a1  free                              
-00002785  CS_startLFXTWithTimeout           
-00002865  TimerP_construct                  
-00002a21  setvbuf                           
-00002afd  SwiP_construct                    
-00002bd5  ClockP_startup                    
-00002d3b  PowerMSP432_initPolicy            
-00002d3d  ClockP_workFuncDynamic            
-00002de9  GPIO_init                         
-00002e95  I2CMSP432_cancel                  
-00002fe5  SemaphoreP_pend                   
-00003085  Power_init                        
-00003121  SwiP_dispatch                     
-000031bd  __aeabi_memcpy                    
-000031bd  __aeabi_memcpy4                   
-000031bd  __aeabi_memcpy8                   
-000031bd  memcpy                            
-00003259  __aeabi_uldivmod                  
-000032ef  PowerMSP432_updateFreqs           
-000032f1  fputc                             
-000032f1  putc                              
-0000337d  __aeabi_cdcmpeq                   
-0000337d  __aeabi_cdcmple                   
-00003403  __aeabi_cdrcmple                  
-00003489  lcd_i2c_init                      
-00003591  ClockP_start                      
-00003611  Interrupt_disableInterrupt        
-00003691  Interrupt_enableInterrupt         
-00003711  __aeabi_memclr                    
-00003711  __aeabi_memclr4                   
-00003711  __aeabi_memclr8                   
-00003713  __aeabi_memset                    
-00003713  __aeabi_memset4                   
-00003713  __aeabi_memset8                   
-00003719  memset                            
-0000378b  _nop                              
-0000378d  ClockP_walkQueueDynamic           
-00003805  I2CMSP432_close                   
-0000387d  __TI_closefile                    
-000038f1  HwiP_construct                    
-00003a3f  clkFxn                            
-00003a41  HOSTrename                        
-00003aad  I2C_masterSendMultiByteFinish     
-00003b19  TimerP_getCurrentTick             
-00003b85  GPIO_hwiIntFxn                    
-00003bed  HOSTlseek                         
-00003c55  Interrupt_pendInterrupt           
-00003cbd  PowerMSP432_getFreqs              
-00003d25  SwiP_post                         
-00003d8d  __TI_decompress_lzss              
-00003e5d  printf                            
-00003ec5  frexp                             
-00003ec5  frexpl                            
-00003f29  fseek                             
-00003f8d  __TI_wrt_ok                       
-00003ff1  GPIO_setCallback                  
-00004051  HOSTopen                          
-000040b1  Interrupt_registerInterrupt       
-0000410d  close                             
-00004169  HOSTread                          
-000041c1  HOSTwrite                         
-00004219  TimerP_dynamicStub                
-0000431d  Interrupt_setPriority             
-00004371  __TI_ltoa                         
-00004419  SemaphoreP_construct              
-00004469  __TI_doflush                      
-000044b5  atoi                              
-00004501  PowerMSP432_sleepPolicy           
-00004549  Power_releaseConstraint           
-00004591  exit                              
-00004621  __aeabi_d2iz                      
-00004669  HOSTclose                         
-000046ad  HOSTunlink                        
-000046f1  I2C_init                          
-00004735  SemaphoreP_post                   
-00004779  SwiP_restore                      
-000047bd  TimerP_start                      
-00004801  __TI_auto_init_nobinit_nopinit    
-00004845  getdevice                         
-000048cd  lcd_send                          
-00004911  I2C_open                          
-00004951  TimerP_setNextTick                
-000049cf  __aeabi_idiv0                     
-000049cf  __aeabi_ldiv0                     
-000049d1  TimerP_initDevice                 
-00004a0d  Power_setConstraint               
-00004a45  __TI_writemsg                     
-00004a73  C$$IO$$                           
-00004a7d  lcd_set_cursor                    
-00004aed  strncpy                           
-00004b25  __TI_cleanup                      
-00004b59  __TI_readmsg                      
-00004b8d  _c_int00_noargs                   
-00004bf1  finddevice                        
-00004c51  __aeabi_i2d                       
-00004c7f  pulse_enable                      
-00004cad  remove                            
-00004cad  unlink                            
-00004cd9  HwiP_create                       
-00004d05  Power_registerNotify              
-00004da5  lseek                             
-00004dcd  write                             
-00004df5  List_put                          
-00004e1b  List_remove                       
-00004e41  ClockP_getTicks                   
-00004e65  ClockP_scheduleNextTick           
-00004e89  HwiP_dispatch                     
-00004ead  lcd_print                         
-00004ed1  CS_setExternalClockSourceFrequency
-00004ef1  ClockP_add                        
-00004f11  Power_unregisterNotify            
-00004f31  QueueP_put                        
-00004f51  lcd_display                       
-00004f71  memchr                            
-00004f91  Interrupt_unregisterInterrupt     
-00004fad  SwiP_disable                      
-00004fe5  memccpy                           
-00005001  QueueP_get                        
-0000501b  SemaphoreP_createBinary           
-00005035  copysign                          
-00005035  copysignl                         
-0000504f  ClockP_destruct                   
-00005067  HwiP_delete                       
-00005081  HwiP_inISR                        
-00005099  I2C_transfer                      
-000050b1  SysCtl_A_disableNMISource         
-000050c9  SysCtl_A_enableNMISource          
-000050f9  resetISR                          
-00005111  strcmp                            
-00005129  SemaphoreP_create                 
-00005155  strchr                            
-0000516d  Power_idleFunc                    
-000051a9  strcpy                            
-000051bd  strlen                            
-000051d1  HwiP_Params_init                  
-000051f5  main                              
-00005207  wcslen                            
-00005219  HwiP_disable                      
-00005229  I2C_Params_init                   
-00005239  Interrupt_disableMaster           
-00005249  Interrupt_enableMaster            
-00005259  PowerMSP432_getNumPerfLevels      
-00005269  Power_disablePolicy               
-00005279  Power_enablePolicy                
-00005289  SemaphoreP_Params_init            
-00005299  SwiP_Params_init                  
-000052a9  SysCtl_A_getNMISourceStatus       
-000052b9  SysCtl_getNMISourceStatus         
-000052c9  TimerP_Params_init                
-000052d9  lcd_clear                         
-000052e9  lcd_home                          
-000052f9  QueueP_empty                      
-00005307  QueueP_remove                     
-00005315  __TI_decompress_none              
-00005323  Board_init                        
-0000532f  CPU_cpsid                         
-0000533b  CPU_cpsie                         
-00005349  ClockP_doTick                     
-00005355  Power_getConstraintMask           
-00005361  Power_getPerformanceLevel         
-0000536d  TimerP_getFreq                    
-00005379  TimerP_getMaxTicks                
-00005385  __TI_zero_init                    
-00005391  mainThread                        
-0000539d  HwiP_restore                      
-000053a5  __aeabi_errno_addr                
-000053b5  malloc                            
-000053bd  I2CMSP432_control                 
-000053c3  QueueP_init                       
-000053c9  ClockP_isActive                   
-000053cd  HwiP_enable                       
-000053cd  NoRTOS_start                      
-000053d1  HwiP_post                         
-000053d5  QueueP_head                       
-000053d9  QueueP_next                       
-000053dd  SemaphoreP_delete                 
-000053e1  TimerP_setPeriod                  
-000053ed  _system_pre_init                  
-000053f1  C$$EXIT                           
-000053f1  abort                             
-000053f4  _ctypes_                          
-00005548  PowerMSP432_config                
-00005580  i2cMSP432HWAttrs                  
-000055a8  I2CMSP432_fxnTable                
-000055c0  I2C_config                        
-000055d8  GPIOMSP432_config                 
-000055fc  I2C_defaultParams                 
-0000564c  Display_count                     
-0000564d  I2C_count                         
-0000564e  SDFatFS_count                     
-0000564f  SD_count                          
-00005650  SPI_count                         
-00005651  UART_count                        
-00005658  __TI_static_base__                
-00005738  __TI_Handler_Table_Base           
-00005744  __TI_Handler_Table_Limit          
-00005758  __TI_CINIT_Base                   
-00005770  __TI_CINIT_Limit                  
+000012cd  sin                               
+000012cd  sinl                              
+000018ad  process_raw_values                
+00001cdd  asin                              
+00001cdd  asinl                             
+000020b1  Power_sleep                       
+00002681  UARTMSP432_open                   
+00002e49  I2CMSP432_open                    
+00003211  MPU6050_Reset                     
+000033d1  __aeabi_dsub                      
+000033db  __aeabi_dadd                      
+00003587  I2CMSP432_hwiIntFxn               
+0000370b  DisplayUartMin_clear              
+0000370d  __kernel_sin                      
+00003881  GPIO_setConfig                    
+000039f1  __kernel_cos                      
+00003b61  sqrt                              
+00003b61  sqrtl                             
+00003df5  __aeabi_ddiv                      
+00003f2b  DisplayUartMin_clearLines         
+00003f2d  MPU6050_ReadData                  
+00004175  mpu6050                           
+00004299  UART_initModule                   
+000044d1  fputs                             
+000045e5  ldexp                             
+000045e5  ldexpl                            
+000045e5  scalbn                            
+000045e5  scalbnl                           
+000046f5  aligned_alloc                     
+000046f5  memalign                          
+000047f5  __aeabi_dmul                      
+000048f1  floor                             
+000048f1  floorl                            
+000049e9  I2CMSP432_transfer                
+00004ad9  CS_startHFXTWithTimeout           
+00004bbd  free                              
+00004ca1  CS_startLFXTWithTimeout           
+00004d81  TimerP_construct                  
+00004e61  UARTMSP432_readPolling            
+00005019  setvbuf                           
+000050f5  SwiP_construct                    
+000051cd  UARTMSP432_hwiIntFxn              
+00005297  DisplayUartMin_init               
+00005409  ClockP_startup                    
+000054bd  UARTMSP432_control                
+00005571  UARTMSP432_writePolling           
+000056d7  I2CMSP432_init                    
+000056d9  ClockP_workFuncDynamic            
+00005785  GPIO_init                         
+00005831  I2CMSP432_cancel                  
+000058dd  UARTMSP432_write                  
+00005a2d  lcd_init                          
+00005ad1  SemaphoreP_pend                   
+00005c11  Power_init                        
+00005cad  SwiP_dispatch                     
+00005d49  __aeabi_memcpy                    
+00005d49  __aeabi_memcpy4                   
+00005d49  __aeabi_memcpy8                   
+00005d49  memcpy                            
+00005de5  __aeabi_uldivmod                  
+00005e7b  UARTMSP432_close                  
+00005fa1  fputc                             
+00005fa1  putc                              
+000060b9  __aeabi_cdcmpeq                   
+000060b9  __aeabi_cdcmple                   
+0000613f  __aeabi_cdrcmple                  
+000061c5  lcd_i2c_init                      
+000062cd  ClockP_start                      
+0000634d  Interrupt_disableInterrupt        
+000063cd  Interrupt_enableInterrupt         
+0000644d  __aeabi_memclr                    
+0000644d  __aeabi_memclr4                   
+0000644d  __aeabi_memclr8                   
+0000644f  __aeabi_memset                    
+0000644f  __aeabi_memset4                   
+0000644f  __aeabi_memset8                   
+00006455  memset                            
+000064c7  PowerMSP432_initPolicy            
+000064c9  ClockP_walkQueueDynamic           
+00006541  I2CMSP432_close                   
+000065b7  PowerMSP432_updateFreqs           
+000065b9  __TI_closefile                    
+0000662d  HwiP_construct                    
+0000669d  UARTMSP432_writeCancel            
+000067eb  __aeabi_d2f                       
+000068c7  SemaphoreP_destruct               
+000068c9  HOSTrename                        
+00006935  I2C_masterSendMultiByteFinish     
+000069a1  TimerP_getCurrentTick             
+00006a0d  ClockP_usleep                     
+00006a0d  usleep                            
+00006a75  GPIO_hwiIntFxn                    
+00006add  HOSTlseek                         
+00006b45  Interrupt_pendInterrupt           
+00006bad  PowerMSP432_getFreqs              
+00006c15  SwiP_post                         
+00006c7d  __TI_decompress_lzss              
+00006d4d  printf                            
+00006db5  frexp                             
+00006db5  frexpl                            
+00006e19  fseek                             
+00006e7d  __TI_wrt_ok                       
+00006edf  UARTMSP432_init                   
+00006ee1  GPIO_setCallback                  
+00006f41  HOSTopen                          
+00006fa1  Display_doOpen                    
+00006ffd  Interrupt_registerInterrupt       
+00007059  close                             
+000070b5  HOSTread                          
+0000710d  HOSTwrite                         
+00007165  TimerP_dynamicStub                
+000072c1  Interrupt_setPriority             
+00007315  TimerP_getCount64                 
+00007369  __TI_ltoa                         
+0000740f  _nop                              
+00007411  SemaphoreP_construct              
+00007461  __TI_doflush                      
+000074ad  atoi                              
+00007545  DisplayUartMin_open               
+00007591  ClockP_construct                  
+000075d9  PowerMSP432_sleepPolicy           
+00007621  Power_releaseConstraint           
+00007669  exit                              
+000076b1  i2c_write                         
+000076f9  __aeabi_d2iz                      
+00007741  DisplayUartMin_vprintf            
+00007787  RingBuf_put                       
+000077cd  HOSTclose                         
+00007811  HOSTunlink                        
+00007855  I2C_init                          
+00007899  SemaphoreP_post                   
+000078dd  SwiP_restore                      
+00007921  TimerP_start                      
+00007965  UART_init                         
+000079a9  __TI_auto_init_nobinit_nopinit    
+000079ed  getdevice                         
+00007a75  __aeabi_d2uiz                     
+00007ab9  lcd_send                          
+00007afb  clkFxn                            
+00007afd  I2C_open                          
+00007b3d  RingBuf_get                       
+00007b7d  TimerP_setNextTick                
+00007bbd  UARTMSP432_read                   
+00007bfd  UART_open                         
+00007c7d  __aeabi_uidiv                     
+00007c7d  __aeabi_uidivmod                  
+00007cfd  TimerP_initDevice                 
+00007d39  Power_setConstraint               
+00007d71  __TI_writemsg                     
+00007d9f  C$$IO$$                           
+00007da9  lcd_set_cursor                    
+00007e19  __aeabi_f2d                       
+00007e51  UARTMSP432_readCancel             
+00007e87  strncpy                           
+00007ebd  __TI_cleanup                      
+00007ef1  __TI_readmsg                      
+00007f25  _c_int00_noargs                   
+00007f59  mainThread                        
+00007f8d  delay_ms                          
+00007fbd  finddevice                        
 00008000  __SYSMEM_SIZE                     
+0000804d  __aeabi_i2d                       
+0000807b  pulse_enable                      
+000080a9  remove                            
+000080a9  unlink                            
+000080d5  Display_doPrintf                  
+000080ff  HwiP_create                       
+00008129  Display_doInit                    
+00008151  Power_registerNotify              
+00008219  lseek                             
+00008241  write                             
+00008269  List_put                          
+0000828f  List_remove                       
+000082b5  ClockP_getTicks                   
+000082d9  ClockP_scheduleNextTick           
+000082fd  HwiP_dispatch                     
+00008345  lcd_print                         
+00008369  CS_setExternalClockSourceFrequency
+00008389  ClockP_add                        
+000083a9  Power_unregisterNotify            
+000083c9  QueueP_put                        
+000083e9  RingBuf_peek                      
+00008409  lcd_display                       
+00008429  memchr                            
+00008449  Interrupt_unregisterInterrupt     
+00008465  SwiP_disable                      
+0000849d  memccpy                           
+000084b9  ClockP_create                     
+000084d3  QueueP_get                        
+000084ed  SemaphoreP_createBinary           
+00008507  copysign                          
+00008507  copysignl                         
+00008521  ClockP_destruct                   
+00008539  HwiP_delete                       
+00008551  HwiP_inISR                        
+00008569  I2C_transfer                      
+00008581  SysCtl_A_disableNMISource         
+00008599  SysCtl_A_enableNMISource          
+000085b1  UART_Params_init                  
+000085c9  lcd_4bit_write                    
+000085e1  resetISR                          
+000085f9  strcmp                            
+00008611  DisplayUartMin_close              
+00008627  SemaphoreP_create                 
+00008669  strchr                            
+0000867f  __aeabi_idiv0                     
+0000867f  __aeabi_ldiv0                     
+00008681  Power_idleFunc                    
+000086d1  strcpy                            
+000086e5  strlen                            
+000086f9  HwiP_Params_init                  
+0000870b  RingBuf_construct                 
+0000871d  lcd_cmd                           
+0000872f  main                              
+00008741  wcslen                            
+00008755  ClockP_Params_init                
+00008765  ClockP_delete                     
+00008775  HwiP_disable                      
+00008785  I2C_Params_init                   
+00008795  Interrupt_disableMaster           
+000087a5  Interrupt_enableMaster            
+000087b5  PowerMSP432_getNumPerfLevels      
+000087c5  Power_disablePolicy               
+000087d5  Power_enablePolicy                
+000087e5  SemaphoreP_Params_init            
+000087f5  SwiP_Params_init                  
+00008805  SysCtl_A_getNMISourceStatus       
+00008815  SysCtl_getNMISourceStatus         
+00008825  TimerP_Params_init                
+00008835  lcd_clear                         
+00008845  lcd_home                          
+00008865  QueueP_empty                      
+00008873  QueueP_remove                     
+00008881  __TI_decompress_none              
+0000888f  Board_init                        
+0000889b  CPU_cpsid                         
+000088a7  CPU_cpsie                         
+000088b5  ClockP_doTick                     
+000088c1  Power_getConstraintMask           
+000088cd  Power_getPerformanceLevel         
+000088d9  TimerP_getFreq                    
+000088e5  TimerP_getMaxTicks                
+000088f1  __TI_zero_init                    
+000088fd  UART_close                        
+00008907  UART_control                      
+00008911  UART_write                        
+0000891b  HwiP_restore                      
+00008925  __aeabi_errno_addr                
+00008935  malloc                            
+00008955  ClockP_stop                       
+0000895b  DisplayUartMin_control            
+00008961  DisplayUartMin_getType            
+00008967  I2CMSP432_control                 
+0000896d  QueueP_init                       
+00008973  ClockP_isActive                   
+00008977  ClockP_setTimeout                 
+0000897b  HwiP_enable                       
+0000897b  NoRTOS_start                      
+0000897f  HwiP_post                         
+00008983  QueueP_head                       
+00008987  QueueP_next                       
+0000898b  SemaphoreP_delete                 
+0000898f  SystemP_vsnprintf                 
+00008993  TimerP_setPeriod                  
+0000899f  _system_pre_init                  
+000089a3  C$$EXIT                           
+000089a3  abort                             
+00008b00  _ctypes_                          
+00008c03  Display_defaultParams             
+00008c94  PowerMSP432_config                
+00008cf8  UARTMSP432_fxnTable               
+00008d20  i2cMSP432HWAttrs                  
+00008d48  UART_defaultParams                
+00008d6c  DisplayUartMin_fxnTable           
+00008dac  I2CMSP432_fxnTable                
+00008dc4  I2C_config                        
+00008ddc  GPIOMSP432_config                 
+00008df0  displayUartHWAttrs                
+00008e14  I2C_defaultParams                 
+00008e34  Display_config                    
+00008e40  UART_config                       
+00008e7c  Display_count                     
+00008e7d  I2C_count                         
+00008e7e  SDFatFS_count                     
+00008e7f  SD_count                          
+00008e80  SPI_count                         
+00008e81  UART_count                        
+00008e90  __TI_static_base__                
+00008f74  __TI_Handler_Table_Base           
+00008f80  __TI_Handler_Table_Limit          
+00008f90  __TI_CINIT_Base                   
+00008fa8  __TI_CINIT_Limit                  
 20000000  __start___llvm_prf_cnts           
 20000000  __stop___llvm_prf_cnts            
 20000000  _sys_memory                       
-20008140  PowerMSP432_perfLevels            
-20008280  _ftable                           
-20008370  _device                           
-200083e8  _stream                           
-20008438  PowerMSP432_module                
-20008464  lcd_i2cTranscation                
-20008480  __TI_ft_end                       
-20008484  __aeabi_stdin                     
-20008488  __aeabi_stdout                    
-2000848c  __aeabi_stderr                    
-20008490  __TI_cleanup_ptr                  
-20008494  __TI_dtors_ptr                    
-20008498  __TI_enable_exit_profile_output   
-200084a8  _lock                             
-200084ac  _unlock                           
-200084b8  SemaphoreP_defaultParams          
-200084c0  gpioCallbackFunctions             
-200084c8  gpioPinConfigs                    
-200084d4  ClockP_tickPeriod                 
-200084d8  HwiP_key                          
-200084dc  HwiP_swiPIntNum                   
-200084e0  errno                             
-200084f0  __CIOBUF_                         
-200086b0  __TI_tmpnams                      
-20008750  i2cMSP432Objects                  
-20008878  lcd_i2c_params                    
-20008895  backlight_val                     
-20008896  display_control                   
-20008897  display_func                      
-200088a8  parmbuf                           
-200088bc  lcd_i2c_handle                    
-200088c0  display_mode                      
-20008c00  g_pfnRAMVectors                   
+20008400  __CIOBUF_                         
+200085c0  __TI_tmpnams                      
+20008660  i2cMSP432Objects                  
+20008700  uartMSP432Objects                 
+20008828  lcd_i2c_params                    
+20008838  mpu6050Params                     
+20008855  angle_pitch_int                   
+20008856  temp                              
+20008858  displayUartObject                 
+20008874  accelerometer                     
+2000887c  gyro                              
+20008884  parmbuf                           
+20008898  acc_total_vector                  
+2000889c  acc_x                             
+200088a0  acc_y                             
+200088a4  acc_z                             
+200088a8  angle_pitch                       
+200088ac  angle_pitch_acc                   
+200088b0  angle_pitch_output                
+200088b4  angle_roll                        
+200088b8  angle_roll_acc                    
+200088bc  angle_roll_output                 
+200088c0  angle_yaw                         
+200088c4  display                           
+200088c8  gyro_x                            
+200088cc  gyro_x_cal                        
+200088d0  gyro_y                            
+200088d4  gyro_y_cal                        
+200088d8  gyro_z                            
+200088dc  gyro_z_cal                        
+200088e0  lcd_i2c_handle                    
+200088e4  mpu6050Handle                     
+200088e8  backlight_val                     
+200088e9  display_control                   
+200088ea  display_func                      
+200088eb  display_mode                      
+200088ec  set_gyro_angles                   
+20008a30  PowerMSP432_perfLevels            
+20008b70  _ftable                           
+20008c60  _device                           
+20008cd8  _stream                           
+20008d28  PowerMSP432_module                
+20008d54  i2cTranscation                    
+20008d70  lcd_i2cTranscation                
+20008d8c  __TI_ft_end                       
+20008d90  __aeabi_stdin                     
+20008d94  __aeabi_stdout                    
+20008d98  __aeabi_stderr                    
+20008d9c  __TI_cleanup_ptr                  
+20008da0  __TI_dtors_ptr                    
+20008da4  __TI_enable_exit_profile_output   
+20008dc0  _lock                             
+20008dc4  _unlock                           
+20008dd0  SemaphoreP_defaultParams          
+20008dd8  gpioCallbackFunctions             
+20008de0  gpioPinConfigs                    
+20008dec  ClockP_tickPeriod                 
+20008df0  HwiP_key                          
+20008df4  HwiP_swiPIntNum                   
+20008df8  errno                             
+20009000  g_pfnRAMVectors                   
 2000f000  __stack                           
 20010000  __STACK_END                       
 4000480c  WDTCTL_SYM                        
@@ -1045,4 +1396,4 @@ ffffffff  binit
 UNDEFED   __mpu_init                        
 UNDEFED   _system_post_cinit                
 
-[268 symbols]
+[372 symbols]
