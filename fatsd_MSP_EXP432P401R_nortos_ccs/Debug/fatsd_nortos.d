@@ -35,6 +35,9 @@ fatsd_nortos.obj: syscfg/ti_drivers_config.h
 fatsd_nortos.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/DeviceFamily.h
 fatsd_nortos.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/drivers/I2C.h
 fatsd_nortos.obj: ../mpu.h
+fatsd_nortos.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/display/DisplayUart.h
+fatsd_nortos.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/drivers/dpl/SemaphoreP.h
+fatsd_nortos.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/drivers/UART.h
 fatsd_nortos.obj: ../msp432p401r.h
 fatsd_nortos.obj: ../msp_compatibility.h
 fatsd_nortos.obj: ../msp432p401r_classic.h
@@ -115,6 +118,12 @@ C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/DeviceFamily.h:
 C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/drivers/I2C.h:
 
 ../mpu.h:
+
+C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/display/DisplayUart.h:
+
+C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/drivers/dpl/SemaphoreP.h:
+
+C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/drivers/UART.h:
 
 ../msp432p401r.h:
 

@@ -217,9 +217,11 @@ void lcd_cmd(uint8_t data)
     lcd_send(data,0);//RS=0;
 }
 
-void lcd_print(uint8_t data[])
+//void lcd_print(uint8_t data[])
+void lcd_print(char data[])
 {
-    uint8_t *str_ptr = data;
+    //uint8_t *str_ptr = data;
+    char *str_ptr = data;
     while(*str_ptr)
         lcd_send(*str_ptr++,Rs);
 }

@@ -22,7 +22,7 @@ void lcd_clear();
 void lcd_send(uint8_t data, uint8_t mode);
 void pulse_enable(uint8_t data);
 void lcd_set_cursor(uint8_t col, uint8_t row);
-void lcd_print(uint8_t data[]);
+void lcd_print(char data[]);
 
 
 #endif /* LCD_H_ */

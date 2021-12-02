@@ -63,6 +63,7 @@
 /* String conversion macro */
 #define STR_(n)             #n
 #define STR(n)              STR_(n)
+#define SYSTICK_FREQ        1//1 sec
 
 /* Drive number used for FatFs */
 #define DRIVE_NUM           0
@@ -113,6 +114,7 @@ void *mainThread(void *arg0)
 //    /* Call driver init functions */
     GPIO_init();
     Display_init();
+    //init_SysTick(SYSTICK_FREQ);
 //    SDFatFS_init();
 //
 //    /* Configure the LED pin */
@@ -128,6 +130,11 @@ void *mainThread(void *arg0)
         /* Failed to open display driver */
         while (1);
     }
+
+    //Display_printf(display, 0, 0, "Hello!");
+
+    // Enable global interrupt
+    __enable_irq();
 //
 //    /* Turn on user LED */
 //    GPIO_write(CONFIG_GPIO_LED_0, CONFIG_GPIO_LED_ON);

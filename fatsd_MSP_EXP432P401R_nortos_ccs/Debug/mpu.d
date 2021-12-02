@@ -32,13 +32,13 @@ mpu.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/kernel/nortos/posix/sys/types.
 mpu.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/drivers/GPIO.h
 mpu.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/drivers/ADC.h
 mpu.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/drivers/I2C.h
+mpu.obj: syscfg/ti_drivers_config.h
+mpu.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/DeviceFamily.h
+mpu.obj: ../mpu.h
 mpu.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/display/Display.h
 mpu.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/display/DisplayUart.h
 mpu.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/drivers/dpl/SemaphoreP.h
 mpu.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/drivers/UART.h
-mpu.obj: syscfg/ti_drivers_config.h
-mpu.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/DeviceFamily.h
-mpu.obj: ../mpu.h
 mpu.obj: ../lcd.h
 
 ../mpu.c:
@@ -105,6 +105,12 @@ C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/drivers/ADC.h:
 
 C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/drivers/I2C.h:
 
+syscfg/ti_drivers_config.h:
+
+C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/DeviceFamily.h:
+
+../mpu.h:
+
 C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/display/Display.h:
 
 C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/display/DisplayUart.h:
@@ -112,12 +118,6 @@ C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/display/DisplayUart.h:
 C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/drivers/dpl/SemaphoreP.h:
 
 C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/drivers/UART.h:
-
-syscfg/ti_drivers_config.h:
-
-C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/DeviceFamily.h:
-
-../mpu.h:
 
 ../lcd.h:
 
